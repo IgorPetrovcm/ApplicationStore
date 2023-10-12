@@ -18,22 +18,22 @@ namespace ApplicationStore
             string commandString = $"select user_id,user_login,user_yearbirth,user_id_role " +
                                    $"from users where user_login = '{login}' and user_password = '{password}'";
 
-            bool[] resultOfCheck = new bool[3];
+            bool[] resultTestOfCheck = new bool[3];
 
-            for (int i = 0; i < resultOfCheck.Length; i++)
+            for (int i = 0; i < resultTestOfCheck.Length; i++)
             {
                 switch (i)
                 {
                     case 0:
-                        resultOfCheck[i] = LogicOfCheckingAccessToDB.RequestUserInfo(login, password); break;
+                        resultTestOfCheck[i] = LogicOfCheckingAccessToDB.RequestUserInfo(login, password); break;
                     case 1:
-                        resultOfCheck[i] = LogicOfCheckingAccessToDB.ConnectionCheckPing(); break;
+                        resultTestOfCheck[i] = LogicOfCheckingAccessToDB.ConnectionCheckPing(); break;
                     case 2:
-                        resultOfCheck[i] = LogicOfCheckingAccessToDB.CommandRequestCheck(commandString, connection); break;
+                        resultTestOfCheck[i] = LogicOfCheckingAccessToDB.CommandRequestCheck(commandString, connection); break;
                 }
             }
 
-            foreach (bool result in resultOfCheck)
+            foreach (bool result in resultTestOfCheck)
             {
                 if (result == false)
                 {

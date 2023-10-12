@@ -16,5 +16,10 @@ namespace ApplicationStore
         {
             InitializeComponent();
         }
+
+        private void btnAddIcon_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
