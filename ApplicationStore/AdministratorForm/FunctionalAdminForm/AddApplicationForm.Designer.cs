@@ -33,7 +33,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
             this.nameBox = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbRolesBox = new System.Windows.Forms.ComboBox();
             this.labelRoleAccess = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.iconBox1)).BeginInit();
             this.SuspendLayout();
@@ -82,13 +82,13 @@
             this.nameBox.Size = new System.Drawing.Size(201, 22);
             this.nameBox.TabIndex = 4;
             // 
-            // comboBox1
+            // cmbRolesBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(201, 62);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 5;
+            this.cmbRolesBox.FormattingEnabled = true;
+            this.cmbRolesBox.Location = new System.Drawing.Point(230, 58);
+            this.cmbRolesBox.Name = "cmbRolesBox";
+            this.cmbRolesBox.Size = new System.Drawing.Size(121, 24);
+            this.cmbRolesBox.TabIndex = 5;
             // 
             // labelRoleAccess
             // 
@@ -106,7 +106,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(363, 409);
             this.Controls.Add(this.labelRoleAccess);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbRolesBox);
             this.Controls.Add(this.nameBox);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.textBox1);
@@ -127,7 +127,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.TextBox nameBox;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbRolesBox;
         private System.Windows.Forms.Label labelRoleAccess;
     }
 }

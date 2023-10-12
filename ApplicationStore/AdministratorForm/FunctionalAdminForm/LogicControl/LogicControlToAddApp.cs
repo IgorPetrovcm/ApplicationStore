@@ -54,4 +54,32 @@ namespace ApplicationStore
             else { MessageBox.Show("Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return; };
         }
     }
+
+    public class LogicObjectControl
+    {
+        public List<string> AddRoleAcess()
+        {
+            MySqlConnection connection;
+            string commandString = "select * from roles";
+            List<string> rolesAccessStrings = new List<string>();
+
+            if (CheckingAccessToDB.ConnectionCheckPing(out connection) == true)
+            {
+                MySqlCommand command = new MySqlCommand(commandString, connection);
+                connection.Open();
+
+                MySqlDataReader reader = command.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    rolesAccessStrings.Add(Convert.ToString(reader.GetValue(1)));
+                }
+                connection.Close();
+                return rolesAccessStrings;
+            }
+            else return null;
+        }
+    }
+    
 }

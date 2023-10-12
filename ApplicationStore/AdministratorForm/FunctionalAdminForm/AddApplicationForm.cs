@@ -15,6 +15,14 @@ namespace ApplicationStore
         public AddApplicationForm(User user)
         {
             InitializeComponent();
+
+            var logicObject = new LogicObjectControl();
+            List<string> rolesStrings = logicObject.AddRoleAcess();
+            
+            foreach (string role in rolesStrings)
+            {
+                cmbRolesBox.Items.Add(role);    
+            }
         }
 
         private void btnAddIcon_Click(object sender, EventArgs e)
