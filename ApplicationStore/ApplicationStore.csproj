@@ -51,6 +51,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdministratorForm\FunctionalAdminForm\AddApplicationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministratorForm\FunctionalAdminForm\AddApplicationForm.Designer.cs">
+      <DependentUpon>AddApplicationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdministratorForm\AdministratorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministratorForm\AdministratorForm.Designer.cs">
+      <DependentUpon>AdministratorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Authorization\LogicControl\LogicControlToAuthorization.cs" />
     <Compile Include="Authorization\LogicControl\LogicOfCheckingAccessToDB.cs" />
     <Compile Include="Authorization\AuthorizationForm.cs">
@@ -59,9 +71,17 @@
     <Compile Include="Authorization\AuthorizationForm.Designer.cs">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdministratorForm\FunctionalAdminForm\LogicControl\CheckingAccessToDB.cs" />
+    <Compile Include="AdministratorForm\FunctionalAdminForm\LogicControl\LogicControlToAddApp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="AdministratorForm\AdministratorForm.resx">
+      <DependentUpon>AdministratorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministratorForm\FunctionalAdminForm\AddApplicationForm.resx">
+      <DependentUpon>AddApplicationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Authorization\AuthorizationForm.resx">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </EmbeddedResource>

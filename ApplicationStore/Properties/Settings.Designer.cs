@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ApplicationStore.Properties
+namespace ApplicationStore_AdminForm.Properties
 {
 
 

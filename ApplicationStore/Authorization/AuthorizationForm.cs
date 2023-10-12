@@ -22,6 +22,11 @@ namespace ApplicationStore
         private void btnLogIn_Click(object sender, EventArgs e)
         {
             user = LogicControlToAuthorization.ReaderDBRequest(loginTextBox.Text,passwordTextBox.Text);
+            if (user != null )
+            {
+                AdministratorForm adminForm = new AdministratorForm(user);
+                adminForm.ShowDialog();
+            }
         }
     }
 }
