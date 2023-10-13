@@ -76,6 +76,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AdministratorForm\FunctionalAdminForm\LogicControl\UnitLogic.cs" />
+    <Compile Include="Roles.cs" />
     <Compile Include="User.cs" />
     <EmbeddedResource Include="AdministratorForm\AdministratorForm.resx">
       <DependentUpon>AdministratorForm.cs</DependentUpon>

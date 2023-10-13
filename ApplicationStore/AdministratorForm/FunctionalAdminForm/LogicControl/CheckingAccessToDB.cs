@@ -10,8 +10,9 @@ namespace ApplicationStore
 {
     public static class CheckingAccessToDB
     {
-        public static bool ConnectionCheckPing(out MySqlConnection connection)
+        public static bool ConnectionCheckPing()
         {
+            MySqlConnection connection;
             string connectionString = ConfigurationManager.ConnectionStrings["dbConnection"].ConnectionString;
             connection = new MySqlConnection(connectionString);
 

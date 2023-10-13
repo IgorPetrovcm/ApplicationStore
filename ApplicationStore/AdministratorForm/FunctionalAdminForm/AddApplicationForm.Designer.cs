@@ -35,6 +35,7 @@
             this.nameBox = new System.Windows.Forms.TextBox();
             this.cmbRolesBox = new System.Windows.Forms.ComboBox();
             this.labelRoleAccess = new System.Windows.Forms.Label();
+            this.checkRestrictionsOfAge = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.iconBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,11 +101,23 @@
             this.labelRoleAccess.TabIndex = 6;
             this.labelRoleAccess.Text = "Role access:";
             // 
+            // checkRestrictionsOfAge
+            // 
+            this.checkRestrictionsOfAge.AutoSize = true;
+            this.checkRestrictionsOfAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkRestrictionsOfAge.Location = new System.Drawing.Point(12, 121);
+            this.checkRestrictionsOfAge.Name = "checkRestrictionsOfAge";
+            this.checkRestrictionsOfAge.Size = new System.Drawing.Size(166, 24);
+            this.checkRestrictionsOfAge.TabIndex = 7;
+            this.checkRestrictionsOfAge.Text = "restrictions of age";
+            this.checkRestrictionsOfAge.UseVisualStyleBackColor = true;
+            // 
             // AddApplicationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(363, 409);
+            this.Controls.Add(this.checkRestrictionsOfAge);
             this.Controls.Add(this.labelRoleAccess);
             this.Controls.Add(this.cmbRolesBox);
             this.Controls.Add(this.nameBox);
@@ -129,5 +142,6 @@
         private System.Windows.Forms.TextBox nameBox;
         private System.Windows.Forms.ComboBox cmbRolesBox;
         private System.Windows.Forms.Label labelRoleAccess;
+        private System.Windows.Forms.CheckBox checkRestrictionsOfAge;
     }
 }

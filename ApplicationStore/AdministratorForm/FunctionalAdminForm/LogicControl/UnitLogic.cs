@@ -13,7 +13,7 @@ namespace ApplicationStore
         public static byte[] SearchImage()
         {
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = ("File extension (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png");
+            dialog.Filter = "Image Files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png" ;
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -24,5 +24,6 @@ namespace ApplicationStore
             }
             else return null;
         } 
+
     }
 }

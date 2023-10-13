@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,19 +15,15 @@ namespace ApplicationStore
         {
             byte[] image = UnitLogic.SearchImage();
 
-            MySqlConnection connection;
-            string commandString = "insert into application_test values (null,'@image','@appname','@appdescription','@roleid','@userid','@restrictions')";
+            string connectionString = ConfigurationManager.ConnectionStrings["dbConnection"].ConnectionString;
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            string commandString = $"insert into application_test values (null,@image,'{appName}','{appDesctiption}',{idRole},{user.Id},{restrictions})";
 
-            if (CheckingAccessToDB.ConnectionCheckPing(out connection) == true)
+            if (CheckingAccessToDB.ConnectionCheckPing() == true)
             {
                 MySqlCommand command = new MySqlCommand(commandString, connection);
 
                 command.Parameters.AddWithValue("@image", image);
-                command.Parameters.AddWithValue("@appname", appName);
-                command.Parameters.AddWithValue("@appdescription", appDesctiption);
-                command.Parameters.AddWithValue("@roleid", idRole);
-                command.Parameters.AddWithValue("@userid", user.Id);
-                command.Parameters.AddWithValue("@restrictions", restrictions);
 
                 try
                 {
@@ -57,13 +54,16 @@ namespace ApplicationStore
 
     public class LogicObjectControl
     {
-        public List<string> AddRoleAcess()
-        {
-            MySqlConnection connection;
-            string commandString = "select * from roles";
-            List<string> rolesAccessStrings = new List<string>();
 
-            if (CheckingAccessToDB.ConnectionCheckPing(out connection) == true)
+        public List<Roles> AddRoleAcess()
+        {
+            List<Roles> roles = new List<Roles>();
+
+            string connectionString = ConfigurationManager.ConnectionStrings["dbConnection"].ConnectionString;
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            string commandString = "select role_id,role_name from roles";
+
+            if (CheckingAccessToDB.ConnectionCheckPing() == true)
             {
                 MySqlCommand command = new MySqlCommand(commandString, connection);
                 connection.Open();
@@ -73,10 +73,11 @@ namespace ApplicationStore
 
                 while (reader.Read())
                 {
-                    rolesAccessStrings.Add(Convert.ToString(reader.GetValue(1)));
+                    Roles role = new Roles(Convert.ToByte(reader.GetValue(0)),Convert.ToString(reader.GetValue(1)));
+                    roles.Add(role);
                 }
                 connection.Close();
-                return rolesAccessStrings;
+                return roles;
             }
             else return null;
         }
