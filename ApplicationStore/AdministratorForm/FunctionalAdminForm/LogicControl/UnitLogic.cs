@@ -18,6 +18,7 @@ namespace ApplicationStore
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 string path = dialog.FileName;
+
                 byte[] imageBytes = File.ReadAllBytes(path);
 
                 return imageBytes;

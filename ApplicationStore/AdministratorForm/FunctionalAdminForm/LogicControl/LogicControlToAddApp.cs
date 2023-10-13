@@ -17,7 +17,9 @@ namespace ApplicationStore
 
             string connectionString = ConfigurationManager.ConnectionStrings["dbConnection"].ConnectionString;
             MySqlConnection connection = new MySqlConnection(connectionString);
-            string commandString = $"insert into application_test values (null,@image,'{appName}','{appDesctiption}',{idRole},{user.Id},{restrictions})";
+
+            string commandString = $"insert into application_test values " +
+                                    $"(null,@image,'{appName}','{appDesctiption}',{idRole},{user.Id},{restrictions})";
 
             if (CheckingAccessToDB.ConnectionCheckPing() == true)
             {
@@ -36,7 +38,7 @@ namespace ApplicationStore
                     }
                     else
                     {
-                        MessageBox.Show("Image added to database failed", "Image added", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        MessageBox.Show("Image added to database failed", "Image added", MessageBoxButtons.OK,MessageBoxIcon.Information);
                     }
                 }
                 catch
@@ -48,7 +50,11 @@ namespace ApplicationStore
                     connection.Close();
                 }
             }
-            else { MessageBox.Show("Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return; };
+            else 
+            { 
+                MessageBox.Show("Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                return; 
+            };
         }
     }
 
@@ -61,23 +67,34 @@ namespace ApplicationStore
 
             string connectionString = ConfigurationManager.ConnectionStrings["dbConnection"].ConnectionString;
             MySqlConnection connection = new MySqlConnection(connectionString);
-            string commandString = "select role_id,role_name from roles";
 
+            string commandString = "select role_id,role_name from roles";
             if (CheckingAccessToDB.ConnectionCheckPing() == true)
             {
                 MySqlCommand command = new MySqlCommand(commandString, connection);
+
                 connection.Open();
 
                 MySqlDataReader reader = command.ExecuteReader();
 
-
-                while (reader.Read())
+                try
                 {
-                    Roles role = new Roles(Convert.ToByte(reader.GetValue(0)),Convert.ToString(reader.GetValue(1)));
-                    roles.Add(role);
+                    while (reader.Read())
+                    {
+                        Roles role = new Roles(Convert.ToByte(reader.GetValue(0)), Convert.ToString(reader.GetValue(1)));
+                        roles.Add(role);
+                    }
+                    return roles;
                 }
-                connection.Close();
-                return roles;
+                catch
+                {
+                    MessageBox.Show("Request error database", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+                finally
+                {
+                    connection.Close();
+                }                
             }
             else return null;
         }

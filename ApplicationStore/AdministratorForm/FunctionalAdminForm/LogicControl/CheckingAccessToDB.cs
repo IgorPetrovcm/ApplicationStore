@@ -12,9 +12,8 @@ namespace ApplicationStore
     {
         public static bool ConnectionCheckPing()
         {
-            MySqlConnection connection;
             string connectionString = ConfigurationManager.ConnectionStrings["dbConnection"].ConnectionString;
-            connection = new MySqlConnection(connectionString);
+            MySqlConnection connection = new MySqlConnection(connectionString);
 
             try
             {
