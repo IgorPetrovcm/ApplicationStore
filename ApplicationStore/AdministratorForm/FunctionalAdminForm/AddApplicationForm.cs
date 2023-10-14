@@ -12,15 +12,17 @@ namespace ApplicationStore
 {
     public partial class AddApplicationForm : Form
     {
+        string imageExtension;
         User user;
         List<Roles> roles;
+        LogicInterfaceControl logicInterfaceControl = new LogicInterfaceControl();
+
         public AddApplicationForm(User user)
         {
             InitializeComponent();
             this.user = user;
 
-            var logicObject = new LogicObjectControl();
-            roles = logicObject.AddRoleAcess();
+            roles = logicInterfaceControl.AddRole();
             
             foreach (Roles role in roles)
             {
@@ -30,11 +32,20 @@ namespace ApplicationStore
 
         private void btnAddIcon_Click(object sender, EventArgs e)
         {
-            if ((nameBox.Text != null) && (cmbRolesBox.SelectedItem.ToString() != "") && (textBox1.Text != ""))
+            iconBox1.Image = logicInterfaceControl.AddIcon(out imageExtension);
+        }
+
+        private void btnAddApp_Click(object sender, EventArgs e)
+        {
+            byte[] imageBytes = UnitLogicInterfaceControl.GetImageBytes(iconBox1, imageExtension);
+            IEnumerable<byte> idrole = from roleName in roles where roleName.NameRole == cmbRolesBox.SelectedItem.ToString() select roleName.IdRole;
+
+            byte idRole = 0;
+            foreach (byte id in idrole)
             {
-                byte roleId = roles.Where(x => x.NameRole == cmbRolesBox.SelectedItem.ToString()).FirstOrDefault().IdRole;
-                LogicControlToAddApp.AddApp(user, nameBox.Text, textBox1.Text,roleId,checkRestrictionsOfAge.Checked);
+                idRole = id;
             }
+            ToAddAppInDB.AddApp(user, imageBytes, nameBox.Text, descriptionBox.Text, idRole, checkRestrictionsOfAge.Checked);
         }
     }
 }

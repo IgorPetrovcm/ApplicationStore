@@ -2,6 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,12 +12,10 @@ using System.Windows.Forms;
 
 namespace ApplicationStore
 {
-    public static class LogicControlToAddApp
+    public static class ToAddAppInDB
     {
-        public static void AddApp(User user,string appName,string appDesctiption,byte idRole,bool restrictions)
-        {
-            byte[] image = UnitLogic.SearchImage();
-
+        public static void AddApp(User user,byte[] imageBytes,string appName,string appDesctiption,byte idRole,bool restrictions)
+        {            
             string connectionString = ConfigurationManager.ConnectionStrings["dbConnection"].ConnectionString;
             MySqlConnection connection = new MySqlConnection(connectionString);
 
@@ -25,7 +26,7 @@ namespace ApplicationStore
             {
                 MySqlCommand command = new MySqlCommand(commandString, connection);
 
-                command.Parameters.AddWithValue("@image", image);
+                command.Parameters.AddWithValue("@image", imageBytes);
 
                 try
                 {
@@ -58,10 +59,10 @@ namespace ApplicationStore
         }
     }
 
-    public class LogicObjectControl
+    public class LogicInterfaceControl
     {
 
-        public List<Roles> AddRoleAcess()
+        public List<Roles> AddRole()
         {
             List<Roles> roles = new List<Roles>();
 
@@ -97,6 +98,15 @@ namespace ApplicationStore
                 }                
             }
             else return null;
+        }
+
+        public Image AddIcon(out string imageExtension)
+        {
+            byte[] imageByte = UnitLogicInterfaceControl.SearchImage(out imageExtension);
+            MemoryStream ms = new MemoryStream(imageByte);
+
+            Image image = Image.FromStream(ms);
+            return image;
         }
     }
     
