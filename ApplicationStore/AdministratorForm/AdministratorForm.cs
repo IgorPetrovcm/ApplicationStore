@@ -24,5 +24,11 @@ namespace ApplicationStore
             AddApplicationForm addAppForm = new AddApplicationForm(user);
             addAppForm.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            EditApplicationForm editAppForm = new EditApplicationForm(user);
+            editAppForm.ShowDialog();
+        }
     }
 }

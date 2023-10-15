@@ -76,11 +76,20 @@
     <Compile Include="AdministratorForm\AdminAddApp\LogicControl\LogicInterfaceControl.cs" />
     <Compile Include="AdministratorForm\AdminAddApp\LogicControl\DataStructures\Data_AddAppInDB.cs" />
     <Compile Include="AdministratorForm\AdminAddApp\LogicControl\DataStructures\Data_LogicDataApp.cs" />
+    <Compile Include="AdministratorForm\AdminDeleteApp\EditApplicationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministratorForm\AdminDeleteApp\EditApplicationForm.Designer.cs">
+      <DependentUpon>EditApplicationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AdministratorForm\AdminAddApp\LogicControl\UnitLogicInterfaceControl.cs" />
     <Compile Include="Roles.cs" />
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="AdministratorForm\AdminDeleteApp\EditApplicationForm.resx">
+      <DependentUpon>EditApplicationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdministratorForm\AdministratorForm.resx">
       <DependentUpon>AdministratorForm.cs</DependentUpon>
     </EmbeddedResource>
