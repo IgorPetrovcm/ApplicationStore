@@ -73,6 +73,9 @@
     </Compile>
     <Compile Include="AdministratorForm\FunctionalAdminForm\LogicControl\CheckingAccessToDB.cs" />
     <Compile Include="AdministratorForm\FunctionalAdminForm\LogicControl\ToAddAppInDb.cs" />
+    <Compile Include="AdministratorForm\FunctionalAdminForm\LogicControl\LogicInterfaceControl.cs" />
+    <Compile Include="AdministratorForm\FunctionalAdminForm\LogicControl\DataStructures\Data_AddAppInDB.cs" />
+    <Compile Include="AdministratorForm\FunctionalAdminForm\LogicControl\DataStructures\Data_LogicDataApp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AdministratorForm\FunctionalAdminForm\LogicControl\UnitLogicInterfaceControl.cs" />

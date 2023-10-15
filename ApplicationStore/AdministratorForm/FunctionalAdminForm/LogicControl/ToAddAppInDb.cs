@@ -14,19 +14,19 @@ namespace ApplicationStore
 {
     public static class ToAddAppInDB
     {
-        public static void AddApp(User user,byte[] imageBytes,string appName,string appDesctiption,byte idRole,bool restrictions)
+        public static void AddApp(Data_AddAppInDB data)
         {            
             string connectionString = ConfigurationManager.ConnectionStrings["dbConnection"].ConnectionString;
             MySqlConnection connection = new MySqlConnection(connectionString);
 
             string commandString = $"insert into application_test values " +
-                                    $"(null,@image,'{appName}','{appDesctiption}',{idRole},{user.Id},{restrictions})";
+                                    $"(null,@image,'{data.Name}','{data.Description}',{data.IdRole},{data.User.Id},{data.Restrictions})";
 
             if (CheckingAccessToDB.ConnectionCheckPing() == true)
             {
                 MySqlCommand command = new MySqlCommand(commandString, connection);
 
-                command.Parameters.AddWithValue("@image", imageBytes);
+                command.Parameters.AddWithValue("@image", data.Image);
 
                 try
                 {
@@ -56,57 +56,6 @@ namespace ApplicationStore
                 MessageBox.Show("Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
                 return; 
             };
-        }
-    }
-
-    public class LogicInterfaceControl
-    {
-
-        public List<Roles> AddRole()
-        {
-            List<Roles> roles = new List<Roles>();
-
-            string connectionString = ConfigurationManager.ConnectionStrings["dbConnection"].ConnectionString;
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            string commandString = "select role_id,role_name from roles";
-            if (CheckingAccessToDB.ConnectionCheckPing() == true)
-            {
-                MySqlCommand command = new MySqlCommand(commandString, connection);
-
-                connection.Open();
-
-                MySqlDataReader reader = command.ExecuteReader();
-
-                try
-                {
-                    while (reader.Read())
-                    {
-                        Roles role = new Roles(Convert.ToByte(reader.GetValue(0)), Convert.ToString(reader.GetValue(1)));
-                        roles.Add(role);
-                    }
-                    return roles;
-                }
-                catch
-                {
-                    MessageBox.Show("Request error database", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return null;
-                }
-                finally
-                {
-                    connection.Close();
-                }                
-            }
-            else return null;
-        }
-
-        public Image AddIcon(out string imageExtension)
-        {
-            byte[] imageByte = UnitLogicInterfaceControl.SearchImage(out imageExtension);
-            MemoryStream ms = new MemoryStream(imageByte);
-
-            Image image = Image.FromStream(ms);
-            return image;
         }
     }
     

@@ -31,7 +31,7 @@ namespace ApplicationStore
         public static byte[] GetImageBytes(PictureBox image,string imageExtension)
         {
             byte[] imageBytes;
-            if ((imageExtension == "*.jpg") || (imageExtension == "*.jpeg"))
+            if ((imageExtension == ".jpg") || (imageExtension == ".jpeg"))
             {
                 MemoryStream ms = new MemoryStream();
                 image.Image.Save(ms, ImageFormat.Jpeg);
@@ -39,7 +39,7 @@ namespace ApplicationStore
 
                 return imageBytes;
             }
-            if (imageExtension == "*.png")
+            if (imageExtension == ".png")
             {
                 MemoryStream ms = new MemoryStream();
                 image.Image.Save(ms, ImageFormat.Png);

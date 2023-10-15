@@ -37,15 +37,8 @@ namespace ApplicationStore
 
         private void btnAddApp_Click(object sender, EventArgs e)
         {
-            byte[] imageBytes = UnitLogicInterfaceControl.GetImageBytes(iconBox1, imageExtension);
-            IEnumerable<byte> idrole = from roleName in roles where roleName.NameRole == cmbRolesBox.SelectedItem.ToString() select roleName.IdRole;
-
-            byte idRole = 0;
-            foreach (byte id in idrole)
-            {
-                idRole = id;
-            }
-            ToAddAppInDB.AddApp(user, imageBytes, nameBox.Text, descriptionBox.Text, idRole, checkRestrictionsOfAge.Checked);
+            Data_LogicDataApp data = new Data_LogicDataApp(iconBox1,imageExtension,roles,cmbRolesBox,user,nameBox.Text,descriptionBox.Text,checkRestrictionsOfAge);
+            logicInterfaceControl.LogicDataApp(data);
         }
     }
 }
