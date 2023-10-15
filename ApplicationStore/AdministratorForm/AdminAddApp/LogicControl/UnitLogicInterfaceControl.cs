@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Drawing.Imaging;
+using ApplicationStore_AdministratorForm;
 
-namespace ApplicationStore_AdministratorForm
+
+namespace ApplicationStore_AdministratorForm_Add
 {
     public static class UnitLogicInterfaceControl
     {

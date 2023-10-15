@@ -71,7 +71,7 @@
     <Compile Include="Authorization\AuthorizationForm.Designer.cs">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdministratorForm\AdminAddApp\LogicControl\CheckingAccessToDB.cs" />
+    <Compile Include="AdministratorForm\CheckingAccessToDB.cs" />
     <Compile Include="AdministratorForm\AdminAddApp\LogicControl\ToAddAppInDb.cs" />
     <Compile Include="AdministratorForm\AdminAddApp\LogicControl\LogicInterfaceControl.cs" />
     <Compile Include="AdministratorForm\AdminAddApp\LogicControl\DataStructures\Data_AddAppInDB.cs" />

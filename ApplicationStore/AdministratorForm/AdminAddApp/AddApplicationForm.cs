@@ -8,8 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using MSD;
 using System.Windows.Forms;
+using ApplicationStore_AdministratorForm;
 
-namespace ApplicationStore_AdministratorForm
+
+namespace ApplicationStore_AdministratorForm_Add
 {
     public partial class AddApplicationForm : Form
     {

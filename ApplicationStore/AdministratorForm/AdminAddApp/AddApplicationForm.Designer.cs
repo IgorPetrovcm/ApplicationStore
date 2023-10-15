@@ -1,4 +1,4 @@
-﻿namespace ApplicationStore_AdministratorForm
+﻿namespace ApplicationStore_AdministratorForm_Add
 {
     partial class AddApplicationForm
     {

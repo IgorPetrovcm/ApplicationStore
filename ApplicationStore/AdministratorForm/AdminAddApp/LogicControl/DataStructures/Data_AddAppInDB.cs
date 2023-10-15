@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MSD;
 
-namespace ApplicationStore_AdministratorForm
+namespace ApplicationStore_AdministratorForm_Add
 {
     public struct Data_AddAppInDB
     {

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ApplicationStore_AdministratorForm_Add;
+
 
 namespace ApplicationStore_AdministratorForm
 {
