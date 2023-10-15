@@ -1,15 +1,13 @@
-﻿using MySql.Data.MySqlClient;
+﻿using ApplicationStore_AdministratorForm;
+using MSD;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MSD;
-using ApplicationStore_AdministratorForm;
 
 namespace ApplicationStore_AdministratorForm_Add
 {
@@ -20,12 +18,12 @@ namespace ApplicationStore_AdministratorForm_Add
         {
             List<Roles> roles = new List<Roles>();
 
-            string connectionString = ConfigurationManager.ConnectionStrings["dbConnection"].ConnectionString;
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
+            string connectionString = null;
             string commandString = "select role_id,role_name from roles";
-            if (CheckingAccessToDB.ConnectionCheckPing() == true)
+
+            if (CheckingAccessToDB.ConnectionCheckPing(out connectionString) == true)
             {
+                MySqlConnection connection = new MySqlConnection(connectionString);
                 MySqlCommand command = new MySqlCommand(commandString, connection);
 
                 connection.Open();

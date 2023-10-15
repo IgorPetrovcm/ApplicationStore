@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ApplicationStore_AdministratorForm_Add;
+using ApplicationStore_AdministratorForm_Edit;
+using System;
 using System.Windows.Forms;
-using ApplicationStore_AdministratorForm_Add;
-
 
 namespace ApplicationStore_AdministratorForm
 {

@@ -1,10 +1,6 @@
-﻿using System;
+﻿using MSD;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MSD;
 
 namespace ApplicationStore_AdministratorForm_Add
 {

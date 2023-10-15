@@ -1,15 +1,6 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ApplicationStore_AdministratorForm;
+using MySql.Data.MySqlClient;
 using System.Windows.Forms;
-using ApplicationStore_AdministratorForm;
 
 
 namespace ApplicationStore_AdministratorForm_Add
@@ -17,15 +8,15 @@ namespace ApplicationStore_AdministratorForm_Add
     public static class ToAddAppInDB
     {
         public static void AddApp(Data_AddAppInDB data)
-        {            
-            string connectionString = ConfigurationManager.ConnectionStrings["dbConnection"].ConnectionString;
-            MySqlConnection connection = new MySqlConnection(connectionString);
+        {
+            string connectionString = null;
 
             string commandString = $"insert into application_test values " +
                                     $"(null,@image,'{data.Name}','{data.Description}',{data.IdRole},{data.User.Id},{data.Restrictions})";
 
-            if (CheckingAccessToDB.ConnectionCheckPing() == true)
+            if (CheckingAccessToDB.ConnectionCheckPing(out connectionString) == true)
             {
+                MySqlConnection connection = new MySqlConnection(connectionString);
                 MySqlCommand command = new MySqlCommand(commandString, connection);
 
                 command.Parameters.AddWithValue("@image", data.Image);
@@ -55,7 +46,6 @@ namespace ApplicationStore_AdministratorForm_Add
             }
             else 
             { 
-                MessageBox.Show("Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
                 return; 
             };
         }

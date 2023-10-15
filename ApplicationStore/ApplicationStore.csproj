@@ -57,6 +57,7 @@
     <Compile Include="AdministratorForm\AdminAddApp\AddApplicationForm.Designer.cs">
       <DependentUpon>AddApplicationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdministratorForm\AdminEditApp\LogicControl\PropertyStructure.cs" />
     <Compile Include="AdministratorForm\AdministratorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +83,7 @@
     <Compile Include="AdministratorForm\AdminEditApp\EditApplicationForm.Designer.cs">
       <DependentUpon>EditApplicationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdministratorForm\AdminEditApp\LogicControl\LogicControl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AdministratorForm\AdminAddApp\LogicControl\UnitLogicInterfaceControl.cs" />

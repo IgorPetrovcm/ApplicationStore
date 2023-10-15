@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MySql.Data.MySqlClient;
 using System.Configuration;
-using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace ApplicationStore_AdministratorForm
 {
     public static class CheckingAccessToDB
     {
-        public static bool ConnectionCheckPing()
+        public static bool ConnectionCheckPing(out string connectionString)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["dbConnection"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["dbConnection"].ConnectionString;
             MySqlConnection connection = new MySqlConnection(connectionString);
 
             try
@@ -22,6 +18,7 @@ namespace ApplicationStore_AdministratorForm
             }
             catch
             {
+                MessageBox.Show("Error access to database");
                 return false;
             }
             finally
