@@ -16,7 +16,7 @@ namespace ApplicationStore
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AuthorizationForm());
+            Application.Run(new ApplicationStore_AuthorizationForm.AuthorizationForm());
         }
     }
 }

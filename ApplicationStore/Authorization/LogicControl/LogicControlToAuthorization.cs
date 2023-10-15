@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MSD;
 
-namespace ApplicationStore
+namespace ApplicationStore_AuthorizationForm
 {
-    public static class LogicControlToAuthorization
+    public static class LogicControl
     {
         public static User ReaderDBRequest(string login, string password)
         {
@@ -25,11 +26,11 @@ namespace ApplicationStore
                 switch (i)
                 {
                     case 0:
-                        resultTestOfCheck[i] = LogicOfCheckingAccessToDB.RequestUserInfo(login, password); break;
+                        resultTestOfCheck[i] = TestCheckingAccessToDB.RequestUserInfo(login, password); break;
                     case 1:
-                        resultTestOfCheck[i] = LogicOfCheckingAccessToDB.ConnectionCheckPing(); break;
+                        resultTestOfCheck[i] = TestCheckingAccessToDB.ConnectionCheckPing(); break;
                     case 2:
-                        resultTestOfCheck[i] = LogicOfCheckingAccessToDB.CommandRequestCheck(commandString, connection); break;
+                        resultTestOfCheck[i] = TestCheckingAccessToDB.CommandRequestCheck(commandString, connection); break;
                 }
             }
 

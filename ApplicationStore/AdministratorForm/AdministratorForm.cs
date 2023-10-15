@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ApplicationStore
+namespace ApplicationStore_AdministratorForm
 {
     public partial class AdministratorForm : Form
     {
-        User user;
-        public AdministratorForm(User user)
+        MSD.User user;
+        public AdministratorForm(MSD.User user)
         {
             InitializeComponent();
             this.user = user;

@@ -1,4 +1,4 @@
-﻿namespace ApplicationStore
+﻿namespace ApplicationStore_AdministratorForm
 {
     partial class AdministratorForm
     {

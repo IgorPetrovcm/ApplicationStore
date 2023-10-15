@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ApplicationStore
+namespace ApplicationStore_AdministratorForm
 {
     public static class ToAddAppInDB
     {

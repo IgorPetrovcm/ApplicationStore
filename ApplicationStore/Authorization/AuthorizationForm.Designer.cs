@@ -1,4 +1,4 @@
-﻿namespace ApplicationStore
+﻿namespace ApplicationStore_AuthorizationForm
 {
     partial class AuthorizationForm
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApplicationStore
+namespace MSD//Main Struct Data
 {
     public class User
     {

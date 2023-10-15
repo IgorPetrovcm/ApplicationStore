@@ -8,8 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MSD;
 
-namespace ApplicationStore
+namespace ApplicationStore_AdministratorForm
 {
     public class LogicInterfaceControl
     {

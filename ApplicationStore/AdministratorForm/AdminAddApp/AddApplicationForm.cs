@@ -6,9 +6,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MSD;
 using System.Windows.Forms;
 
-namespace ApplicationStore
+namespace ApplicationStore_AdministratorForm
 {
     public partial class AddApplicationForm : Form
     {

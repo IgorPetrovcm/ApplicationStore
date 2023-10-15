@@ -11,12 +11,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ApplicationStore
+namespace ApplicationStore_AdministratorForm
 {
     public partial class EditApplicationForm : Form
     {
-        User user;
-        public EditApplicationForm(User user)
+        MSD.User user;
+        public EditApplicationForm(MSD.User user)
         {
             InitializeComponent();
             this.user = user;

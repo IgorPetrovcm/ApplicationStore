@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Configuration;
 using MySql.Data.MySqlClient;
 
-namespace ApplicationStore
+namespace ApplicationStore_AdministratorForm
 {
     public static class CheckingAccessToDB
     {
