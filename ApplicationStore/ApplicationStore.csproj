@@ -51,10 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdministratorForm\FunctionalAdminForm\AddApplicationForm.cs">
+    <Compile Include="AdministratorForm\AdminAddApp\AddApplicationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdministratorForm\FunctionalAdminForm\AddApplicationForm.Designer.cs">
+    <Compile Include="AdministratorForm\AdminAddApp\AddApplicationForm.Designer.cs">
       <DependentUpon>AddApplicationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AdministratorForm\AdministratorForm.cs">
@@ -71,20 +71,20 @@
     <Compile Include="Authorization\AuthorizationForm.Designer.cs">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdministratorForm\FunctionalAdminForm\LogicControl\CheckingAccessToDB.cs" />
-    <Compile Include="AdministratorForm\FunctionalAdminForm\LogicControl\ToAddAppInDb.cs" />
-    <Compile Include="AdministratorForm\FunctionalAdminForm\LogicControl\LogicInterfaceControl.cs" />
-    <Compile Include="AdministratorForm\FunctionalAdminForm\LogicControl\DataStructures\Data_AddAppInDB.cs" />
-    <Compile Include="AdministratorForm\FunctionalAdminForm\LogicControl\DataStructures\Data_LogicDataApp.cs" />
+    <Compile Include="AdministratorForm\AdminAddApp\LogicControl\CheckingAccessToDB.cs" />
+    <Compile Include="AdministratorForm\AdminAddApp\LogicControl\ToAddAppInDb.cs" />
+    <Compile Include="AdministratorForm\AdminAddApp\LogicControl\LogicInterfaceControl.cs" />
+    <Compile Include="AdministratorForm\AdminAddApp\LogicControl\DataStructures\Data_AddAppInDB.cs" />
+    <Compile Include="AdministratorForm\AdminAddApp\LogicControl\DataStructures\Data_LogicDataApp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AdministratorForm\FunctionalAdminForm\LogicControl\UnitLogicInterfaceControl.cs" />
+    <Compile Include="AdministratorForm\AdminAddApp\LogicControl\UnitLogicInterfaceControl.cs" />
     <Compile Include="Roles.cs" />
     <Compile Include="User.cs" />
     <EmbeddedResource Include="AdministratorForm\AdministratorForm.resx">
       <DependentUpon>AdministratorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdministratorForm\FunctionalAdminForm\AddApplicationForm.resx">
+    <EmbeddedResource Include="AdministratorForm\AdminAddApp\AddApplicationForm.resx">
       <DependentUpon>AddApplicationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Authorization\AuthorizationForm.resx">
