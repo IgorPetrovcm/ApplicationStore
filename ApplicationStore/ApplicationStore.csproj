@@ -65,6 +65,12 @@
       <DependentUpon>AdministratorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="App.cs" />
+    <Compile Include="ApplicationForm\ApplicationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationForm\ApplicationForm.Designer.cs">
+      <DependentUpon>ApplicationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Authorization\LogicControl\LogicControlToAuthorization.cs" />
     <Compile Include="Authorization\LogicControl\LogicOfCheckingAccessToDB.cs" />
     <Compile Include="Authorization\AuthorizationForm.cs">
@@ -85,6 +91,7 @@
       <DependentUpon>EditApplicationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AdministratorForm\AdminEditApp\LogicControl\LogicControl.cs" />
+    <Compile Include="AdministratorForm\AdminEditApp\LogicControl\GetDataApp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AdministratorForm\AdminAddApp\LogicControl\UnitLogicInterfaceControl.cs" />
@@ -98,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdministratorForm\AdminAddApp\AddApplicationForm.resx">
       <DependentUpon>AddApplicationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationForm\ApplicationForm.resx">
+      <DependentUpon>ApplicationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Authorization\AuthorizationForm.resx">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
@@ -124,6 +134,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="AdministratorForm\AdminEditApp\DataStructures\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

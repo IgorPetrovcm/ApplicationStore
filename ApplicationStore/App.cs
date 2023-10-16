@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MSD//Main Struct Data
 {
-    public class App
+    public struct App
     {
         byte id;
         byte[] image;
@@ -32,7 +32,7 @@ namespace MSD//Main Struct Data
             byte roleId,
             byte userId,
             bool restrictions
-            )
+            ) : this()
         {
             Id = id;
             Image = image; 

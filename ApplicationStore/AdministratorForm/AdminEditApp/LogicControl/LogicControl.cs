@@ -17,54 +17,16 @@ namespace ApplicationStore_AdministratorForm_Edit
     {
         public static List<Control> PanelAddAppToDB()
         {
-            string test;
-            string connectionString = ConfigurationManager.ConnectionStrings["dbConnection"].ConnectionString;
-            string commandString = @"select * from application_test";
+            List<Control> controls = new List<Control>();
+            List<App> apps = GetDataApps.GetApp();
 
-            if (CheckingAccessToDB.ConnectionCheckPing(out test) == true)
+            foreach (App app in apps)
             {
-                MySqlConnection connection = new MySqlConnection(connectionString);
-                MySqlCommand command = new MySqlCommand(commandString, connection);
-
-                using (connection)
-                {
-
-                    try
-                    {
-                        connection.Open();
-
-                        MySqlDataReader reader = command.ExecuteReader();
-
-                        int i = 0;
-                        Panel panel = new Panel();
-                        List<Control> controls = new List<Control>();
-
-                        while (reader.Read())
-                        {
-                            TextBox appName = PropertyStructure.GetNameAppBox(i, reader);
-
-                            PictureBox appIcon = PropertyStructure.GetIconApp(i, reader);
-                            i++;
-
-                            controls.Add(appName);
-                            controls.Add(appIcon);
-                        }
-
-                        connection.Close();
-                        return controls;
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Error access to database", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return null;
-                    }
-                }
+                controls.Add(PropertyStructure.GetNameAppBox(app));
+                controls.Add(PropertyStructure.GetIconApp(app));
             }
-            else
-            {
-                MessageBox.Show("Total error. Missing database", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
-            }
+            
+            return controls;
         }
     }
 }
