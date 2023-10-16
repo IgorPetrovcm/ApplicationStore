@@ -64,6 +64,7 @@
     <Compile Include="AdministratorForm\AdministratorForm.Designer.cs">
       <DependentUpon>AdministratorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="App.cs" />
     <Compile Include="Authorization\LogicControl\LogicControlToAuthorization.cs" />
     <Compile Include="Authorization\LogicControl\LogicOfCheckingAccessToDB.cs" />
     <Compile Include="Authorization\AuthorizationForm.cs">
