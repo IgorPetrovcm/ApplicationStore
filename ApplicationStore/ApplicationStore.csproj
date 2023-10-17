@@ -73,7 +73,6 @@
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Authorization\LogicControl\LogicControlToAuthorization.cs" />
-    <Compile Include="Authorization\LogicControl\LogicOfCheckingAccessToDB.cs" />
     <Compile Include="Authorization\AuthorizationForm.cs">
       <SubType>Form</SubType>
     </Compile>

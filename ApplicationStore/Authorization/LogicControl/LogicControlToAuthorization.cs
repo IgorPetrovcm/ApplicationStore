@@ -1,12 +1,9 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MSD;
+using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MSD;
+using MDBC;
 
 namespace ApplicationStore_AuthorizationForm
 {
@@ -14,38 +11,9 @@ namespace ApplicationStore_AuthorizationForm
     {
         public static User ReaderDBRequest(string login, string password)
         {
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["dbConnection"].ConnectionString);
 
-            string commandString = $"select user_id,user_login,user_yearbirth,user_id_role " +
-                                   $"from users where user_login = '{login}' and user_password = '{password}'";
-
-            bool[] resultTestOfCheck = new bool[3];
-
-            for (int i = 0; i < resultTestOfCheck.Length; i++)
-            {
-                switch (i)
-                {
-                    case 0:
-                        resultTestOfCheck[i] = TestCheckingAccessToDB.RequestUserInfo(login, password); break;
-                    case 1:
-                        resultTestOfCheck[i] = TestCheckingAccessToDB.ConnectionCheckPing(); break;
-                    case 2:
-                        resultTestOfCheck[i] = TestCheckingAccessToDB.CommandRequestCheck(commandString, connection); break;
-                }
-            }
-
-            foreach (bool result in resultTestOfCheck)
-            {
-                if (result == false)
-                {
-                    MessageBox.Show("Database access error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return null;
-                }
-            }
-            MySqlCommand command = new MySqlCommand(commandString, connection);
-            connection.Open();
-
-            MySqlDataReader reader = command.ExecuteReader();
+            MySqlDataReader reader = GetResultDB.GetReader("select user_id,user_login,user_yearbirth,user_id_role from users " +
+                $"where user_login = '{login}' and user_password = '{password}'");
 
             byte idUser = 0, idRoleUser = 0;
             string loginUser = null;
@@ -73,8 +41,6 @@ namespace ApplicationStore_AuthorizationForm
                     }
                 }
             }
-
-            connection.Close();
 
             User user = new User(idUser, loginUser, birthUser, idRoleUser);
 
