@@ -142,6 +142,7 @@
             this.Controls.Add(this.icon_appBox);
             this.Name = "ApplicationForm";
             this.Text = "ApplicationForm";
+            this.Load += new System.EventHandler(this.ApplicationForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.icon_appBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

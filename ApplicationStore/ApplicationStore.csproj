@@ -64,7 +64,8 @@
     <Compile Include="AdministratorForm\AdministratorForm.Designer.cs">
       <DependentUpon>AdministratorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="App.cs" />
+    <Compile Include="MainDBConnection.cs" />
+    <Compile Include="MainStructData\App.cs" />
     <Compile Include="ApplicationForm\ApplicationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,11 +93,13 @@
     </Compile>
     <Compile Include="AdministratorForm\AdminEditApp\LogicControl\LogicControl.cs" />
     <Compile Include="AdministratorForm\AdminEditApp\LogicControl\GetDataApp.cs" />
+    <Compile Include="ApplicationForm\LogicControl\LogicControl.cs" />
+    <Compile Include="ApplicationForm\DataStructures\Data_ControlsToForm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AdministratorForm\AdminAddApp\LogicControl\UnitLogicInterfaceControl.cs" />
-    <Compile Include="Roles.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="MainStructData\Roles.cs" />
+    <Compile Include="MainStructData\User.cs" />
     <EmbeddedResource Include="AdministratorForm\AdminEditApp\EditApplicationForm.resx">
       <DependentUpon>EditApplicationForm.cs</DependentUpon>
     </EmbeddedResource>
