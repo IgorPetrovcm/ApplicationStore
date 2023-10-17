@@ -7,6 +7,7 @@ using MSD;
 using ApplicationStore_AdministratorForm;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using MDBC;
 
 namespace ApplicationStore_AdministratorForm_Edit
 {
@@ -14,47 +15,33 @@ namespace ApplicationStore_AdministratorForm_Edit
     {
         public static List<App> GetApp()
         {
-            string connectionString = null;
-            string commandString = "select * from application_test";
-            if (CheckingAccessToDB.ConnectionCheckPing(out connectionString)==true)
+            List<App> apps = new List<App>();
+
+            using (MySqlDataReader reader = GetResultDB.GetReader("select * from application_test"))
             {
-                MySqlConnection connection = new MySqlConnection(connectionString);
-                MySqlCommand command = new MySqlCommand(commandString,connection);
-
-                connection.Open();
-
-                try
+                while (reader.Read())
                 {
-                    MySqlDataReader reader = command.ExecuteReader();
-                    List<App> apps = new List<App>();
+                    App app = new App();
 
-                    while (reader.Read())
-                    {
-                        App app = new App();
+                    app.Id = (byte)reader.GetValue(0);
+                    app.Image = (byte[])reader.GetValue(1);
+                    app.Name = (string)reader.GetValue(2);
+                    app.Description = (string)reader.GetValue(3); 
+                    app.RoleId = (byte)reader.GetValue(4);
+                    app.UserId = (byte)reader.GetValue(5);
+                    app.Restrictions = (bool)reader.GetValue(6);
+/*                    app.Id = reader.GetByte(0);
+                    app.Image = (byte[])reader.GetValue(1);
+                    app.Name = reader.GetString(2);
+                    app.Description = reader.GetString(3);
+                    app.RoleId = reader.GetByte(4);
+                    app.UserId = reader.GetByte(5);
+                    app.Restrictions = reader.GetBoolean(6);*/
 
-                        app.Id = (byte) reader.GetValue(0);
-                        app.Image = (byte[]) reader.GetValue(1);
-                        app.Name = (string) reader.GetValue(2);
-                        app.Description = (string) reader.GetValue(3);
-                        app.RoleId = (byte) reader.GetValue(4);
-                        app.UserId = (byte) reader.GetValue(5);
-                        app.Restrictions = (bool) reader.GetValue(6);
-
-                        apps.Add(app);
-                    }
-                    connection.Close();
-                    return apps;
+                    apps.Add(app);
                 }
-                catch
-                {
-                    MessageBox.Show("Total error. Request failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return null;
-                }                 
-            }
-            else 
-            { 
-                return null; 
-            }
+                return apps;
+            }        
         }
     }
 }
