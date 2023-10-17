@@ -53,15 +53,8 @@ namespace MDBC
             con.Open();
             MySqlDataReader reader = com.ExecuteReader();
 
-            if (reader.Read())
-            {
-                return reader;
-            }
-            else
-            {
-                MessageBox.Show("Error request", "Total error",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return null;
-            }
+            return reader;
+
         }
     }
 }
