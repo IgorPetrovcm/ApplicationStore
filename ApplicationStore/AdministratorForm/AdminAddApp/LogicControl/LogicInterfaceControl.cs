@@ -8,63 +8,53 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using MDBC;
 
 namespace ApplicationStore_AdministratorForm_Add
 {
     public class LogicInterfaceControl
     {
-
         public List<Roles> AddRole()
         {
             List<Roles> roles = new List<Roles>();
 
-            string connectionString = null;
-            string commandString = "select role_id,role_name from roles";
+            MySqlDataReader reader = GetResultDB.GetReader("select role_id,role_name from roles");
 
-            if (CheckingAccessToDB.ConnectionCheckPing(out connectionString) == true)
+            try
             {
-                MySqlConnection connection = new MySqlConnection(connectionString);
-                MySqlCommand command = new MySqlCommand(commandString, connection);
-
-                connection.Open();
-
-                MySqlDataReader reader = command.ExecuteReader();
-
-                try
+                while (reader.Read())
                 {
-                    while (reader.Read())
-                    {
-                        Roles role = new Roles(Convert.ToByte(reader.GetValue(0)), Convert.ToString(reader.GetValue(1)));
-                        roles.Add(role);
-                    }
-                    return roles;
+                    Roles role = new Roles((byte)reader.GetValue(0), (string)reader.GetValue(1));
+                    roles.Add(role);
                 }
-                catch
-                {
-                    MessageBox.Show("Request error database", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return null;
-                }
-                finally
-                {
-                    connection.Close();
-                }
+                return roles;
             }
-            else return null;
+            catch
+            {
+                MessageBox.Show("Request error database", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
         }
 
         public Image AddIcon(out string imageExtension)
         {
             byte[] imageByte = UnitLogicInterfaceControl.SearchImage(out imageExtension);
-            MemoryStream ms = new MemoryStream(imageByte);
 
-            Image image = Image.FromStream(ms);
-            return image;
+            using (MemoryStream ms = new MemoryStream(imageByte))
+            {
+                Image image = Image.FromStream(ms);
+                return image;
+            }
         }
 
         public void LogicDataApp(Data_LogicDataApp data)
         {
             byte[] imageBytes = UnitLogicInterfaceControl.GetImageBytes(data.Icon, data.Extension);
-            IEnumerable<byte> idrole = from roleName in data.Roles where roleName.NameRole == data.Cmb_Roles.SelectedItem.ToString() select roleName.IdRole;
+            IEnumerable<byte> idrole = from roleName 
+                                       in data.Roles 
+                                       where roleName.NameRole == 
+                                       data.Cmb_Roles.SelectedItem.ToString() 
+                                       select roleName.IdRole;
 
             byte idRole = 0;
             foreach (byte id in idrole)

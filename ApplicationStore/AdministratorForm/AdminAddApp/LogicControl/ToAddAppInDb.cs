@@ -7,6 +7,11 @@ namespace ApplicationStore_AdministratorForm_Add
 {
     public static class ToAddAppInDB
     {
+        public static void AddAppTest(Data_AddAppInDB data)
+        {
+
+        }
+
         public static void AddApp(Data_AddAppInDB data)
         {
             string connectionString = null;
