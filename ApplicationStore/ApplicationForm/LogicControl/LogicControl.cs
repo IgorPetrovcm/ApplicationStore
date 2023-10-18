@@ -11,6 +11,7 @@ using MDBC;
 using MySql.Data.MySqlClient;
 using System.IO;
 using System.Drawing;
+using System.Runtime.Remoting.Channels;
 
 namespace ApplicationStore_ApplicationForm
 {
@@ -25,6 +26,7 @@ namespace ApplicationStore_ApplicationForm
                 {
                     data.User_Name.Text = reader.GetString(0);
                 }
+
             }
 
             using (reader = GetResultDB.GetReader($"select role_name from roles where role_id = {app.RoleId}"))
@@ -41,12 +43,19 @@ namespace ApplicationStore_ApplicationForm
             }
 
             data.Description.Text = app.Description;
-            data.Description.ReadOnly = true;
 
             data.Restrictions.Checked = app.Restrictions;
-            data.Restrictions.Enabled = false;
 
             return data;
+        }
+
+        public static Data_ControlsToForm GetAppFunction(Data_ControlsToForm data)
+        {
+            data.User_Name.DoubleClick += (sender, e) =>
+            {
+                ChangeTextForm change = new ChangeTextForm();
+                change.ShowDialog();
+            };
         }
     }
 }

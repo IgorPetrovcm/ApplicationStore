@@ -27,6 +27,8 @@ namespace ApplicationStore_ApplicationForm
             roleText = data_form.Role;
             restrictionChkBox = data_form.Restrictions;
             textBox1 = data_form.Description;
+
+
         }
-    }
+}
 }
