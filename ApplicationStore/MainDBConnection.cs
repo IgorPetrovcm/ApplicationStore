@@ -44,6 +44,15 @@ namespace MDBC
 
     public static class GetResultDB
     {
+        public static MySqlCommand GetDefaultRequest(string comStr)
+        {
+            MySqlConnection con = BasicDBOperations.GetConnection();
+            MySqlCommand com = BasicDBOperations.GetCommand(con, comStr);
+
+            con.Open();
+            return com;
+        }
+
         public static MySqlDataReader GetReader(string comStr)
         {
             MySqlConnection con = BasicDBOperations.GetConnection();
