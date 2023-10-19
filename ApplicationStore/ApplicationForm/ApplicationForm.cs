@@ -11,11 +11,13 @@ namespace ApplicationStore_ApplicationForm
     public partial class ApplicationForm : Form
     {
         App app;
-        public ApplicationForm(App app)
+        User user;
+        public ApplicationForm(App app, User user)
         {
             InitializeComponent();
 
             this.app = app;
+            this.user = user;
         }
 
         private void ApplicationForm_Load(object sender, System.EventArgs e)
@@ -34,7 +36,10 @@ namespace ApplicationStore_ApplicationForm
 
         private void button1_Click(object sender, System.EventArgs e)
         {
+            RequestAdminPasswordForm requestAdmin_passwordForm = new RequestAdminPasswordForm(user);
+            requestAdmin_passwordForm.ShowDialog();
 
+            this.Close();
         }
     }
 }

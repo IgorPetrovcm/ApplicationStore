@@ -1,6 +1,6 @@
 ﻿namespace ApplicationStore_ApplicationForm
 {
-    partial class RequestAdminPassword
+    partial class RequestAdminPasswordForm
     {
         /// <summary>
         /// Required designer variable.

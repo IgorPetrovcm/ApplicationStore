@@ -13,10 +13,10 @@ using MySql.Data.MySqlClient;
 
 namespace ApplicationStore_ApplicationForm
 {
-    public partial class RequestAdminPassword : Form
+    public partial class RequestAdminPasswordForm : Form
     {
         User user;
-        public RequestAdminPassword(User user)
+        public RequestAdminPasswordForm(User user)
         {
             InitializeComponent();
             this.user = user;
