@@ -64,11 +64,11 @@
     <Compile Include="AdministratorForm\AdministratorForm.Designer.cs">
       <DependentUpon>AdministratorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ApplicationForm\LogicControl\ChangeTextForm.cs">
+    <Compile Include="ApplicationForm\RequestAdminPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ApplicationForm\LogicControl\ChangeTextForm.Designer.cs">
-      <DependentUpon>ChangeTextForm.cs</DependentUpon>
+    <Compile Include="ApplicationForm\RequestAdminPassword.Designer.cs">
+      <DependentUpon>RequestAdminPassword.cs</DependentUpon>
     </Compile>
     <Compile Include="MainDBConnection.cs" />
     <Compile Include="MainStructData\App.cs" />
@@ -117,8 +117,8 @@
     <EmbeddedResource Include="ApplicationForm\ApplicationForm.resx">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ApplicationForm\LogicControl\ChangeTextForm.resx">
-      <DependentUpon>ChangeTextForm.cs</DependentUpon>
+    <EmbeddedResource Include="ApplicationForm\RequestAdminPassword.resx">
+      <DependentUpon>RequestAdminPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Authorization\AuthorizationForm.resx">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
