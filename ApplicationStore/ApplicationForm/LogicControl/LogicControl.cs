@@ -12,6 +12,7 @@ using MySql.Data.MySqlClient;
 using System.IO;
 using System.Drawing;
 using System.Runtime.Remoting.Channels;
+using ApplicationStore_AdministratorForm_Add;
 
 namespace ApplicationStore_ApplicationForm
 {
@@ -43,19 +44,36 @@ namespace ApplicationStore_ApplicationForm
             }
 
             data.Description.Text = app.Description;
+            data.Description.ReadOnly = true;
 
             data.Restrictions.Checked = app.Restrictions;
+            data.Restrictions.Enabled = false;
 
             return data;
         }
 
-        public static Data_ControlsToForm GetAppFunction(Data_ControlsToForm data)
+/*        public static Data_ControlsToForm GetAppFunction(Data_ControlsToForm data)
         {
             data.User_Name.DoubleClick += (sender, e) =>
             {
                 ChangeTextForm change = new ChangeTextForm();
                 change.ShowDialog();
             };
-        }
+
+            data.Role.DoubleClick += (sender, e) =>
+            {
+                LogicInterfaceControl logicInterfaceControl = new LogicInterfaceControl();
+
+                ComboBox cmbRoles = new ComboBox();
+                List<Roles> roles = logicInterfaceControl.AddRole();
+
+                foreach (Roles role in roles)
+                {
+                    cmbRoles.Items.Add(role);
+                }
+
+                cmbRoles.Location = new Point(data.Role.Location.X + 20, data.Role.Location.Y);
+            };
+        }*/
     }
 }
