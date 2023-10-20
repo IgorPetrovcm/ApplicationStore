@@ -10,13 +10,15 @@ using System.Windows.Forms;
 using MSD;
 using MDBC;
 using MySql.Data.MySqlClient;
+using ApplicationStore.ApplicationForm;
 
 namespace ApplicationStore_ApplicationForm
 {
     public partial class RequestAdminPasswordForm : Form
     {
         User user;
-        public RequestAdminPasswordForm(User user)
+        App app;
+        public RequestAdminPasswordForm(User user, App app)
         {
             InitializeComponent();
             this.user = user;
@@ -32,7 +34,17 @@ namespace ApplicationStore_ApplicationForm
                 {
                     if (user_passwordBox.Text == (string)reader.GetValue(0))
                     {
+                        ApplicationEditForm editForm = new ApplicationEditForm(app);
+                        editForm.ShowDialog();
 
+                        this.Close();
+                    }
+                    else
+                    {
+                        ApplicationForm appForm = new ApplicationForm(app,user);
+                        appForm.ShowDialog();
+
+                        this.Close();
                     }
                 }
             }
