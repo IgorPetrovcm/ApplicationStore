@@ -11,6 +11,7 @@ namespace ApplicationStore_AdministratorForm_Add
         public static void AddApp(Data_AddAppInDB data)
         {
             string commandString = $"insert into application_test values (null,@image,'{data.Name}','{data.Description}',{data.IdRole},{data.User.Id},{data.Restrictions})";
+
             using (MySqlCommand command = GetResultDB.GetDefaultRequest(commandString))
             {
                 command.Parameters.AddWithValue("@image", data.Image);

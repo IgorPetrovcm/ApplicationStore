@@ -4,12 +4,14 @@ using System;
 using System.Configuration;
 using System.Windows.Forms;
 using MDBC;
+using ApplicationStore_AdministratorForm;
+using MCh;
 
 namespace ApplicationStore_AuthorizationForm
 {
     public static class LogicControl
     {
-        public static User ReaderDBRequest(string login, string password)
+        public static User GetUser(string login, string password)
         {
             User user = new User();
 
@@ -38,8 +40,18 @@ namespace ApplicationStore_AuthorizationForm
                     }
                 }
             }
+            if (ChecksEntities.CheckUser(user))
+            {
+                AdministratorForm admin = new AdministratorForm(user);
+                admin.ShowDialog();
 
-            return user;
+                return user;
+            }
+            else
+            {
+                MessageBox.Show("Incorrect login or password", "Connection error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
         }
     }
 }

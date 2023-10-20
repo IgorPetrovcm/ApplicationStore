@@ -11,30 +11,33 @@ namespace ApplicationStore_AdministratorForm_Add
         string imageExtension;
         User user;
         List<Roles> roles;
-        LogicInterfaceControl logicInterfaceControl = new LogicInterfaceControl();
 
         public AddApplicationForm(User user)
         {
             InitializeComponent();
-            this.user = user;
 
-            roles = logicInterfaceControl.AddRole();
-            
-            foreach (Roles role in roles)
-            {
-                cmbRolesBox.Items.Add(role.NameRole);    
-            }
+            this.user = user;
         }
 
         private void btnAddIcon_Click(object sender, EventArgs e)
         {
-            iconBox1.Image = logicInterfaceControl.AddIcon(out imageExtension);
+            iconBox1.Image = LogicInterfaceControl.AddIcon(out imageExtension);
         }
 
         private void btnAddApp_Click(object sender, EventArgs e)
         {
             Data_LogicDataApp data = new Data_LogicDataApp(iconBox1,imageExtension,roles,cmbRolesBox,user,nameBox.Text,descriptionBox.Text,checkRestrictionsOfAge);
-            logicInterfaceControl.LogicDataApp(data);
+            LogicInterfaceControl.LogicDataApp(data);
+        }
+
+        private void AddApplicationForm_Load(object sender, EventArgs e)
+        {
+            roles = LogicInterfaceControl.AddRole();
+
+            foreach (Roles role in roles)
+            {
+                cmbRolesBox.Items.Add(role.NameRole);
+            }
         }
     }
 }

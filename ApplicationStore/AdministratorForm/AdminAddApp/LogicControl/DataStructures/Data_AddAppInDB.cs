@@ -28,27 +28,6 @@ namespace ApplicationStore_AdministratorForm_Add
             bool restrictions 
             ) : this()
         {
-            if (user == null) { 
-                MessageBox.Show("Total error.User missing", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                return; 
-            }
-            if (image == null) { 
-                MessageBox.Show("Icon missing", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                return; 
-            }
-            if (name == null) { 
-                MessageBox.Show("Icon missing", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                return; 
-            }
-            if (description == null) { 
-                MessageBox.Show("Icon missing", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                return; 
-            }
-            if (idRole == 0) { 
-                MessageBox.Show("Icon missing", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                return; 
-            }
-
             User = user;   
             Image = image;
             Name = name;

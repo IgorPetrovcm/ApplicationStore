@@ -9,12 +9,13 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using MDBC;
+using MCh;
 
 namespace ApplicationStore_AdministratorForm_Add
 {
-    public class LogicInterfaceControl
+    public static class LogicInterfaceControl
     {
-        public List<Roles> AddRole()
+        public static List<Roles> AddRole()
         {
             List<Roles> roles = new List<Roles>();
 
@@ -25,7 +26,16 @@ namespace ApplicationStore_AdministratorForm_Add
                 while (reader.Read())
                 {
                     Roles role = new Roles((byte)reader.GetValue(0), (string)reader.GetValue(1));
-                    roles.Add(role);
+
+                    if (ChecksEntities.CheckRole(role))
+                    {
+                        roles.Add(role);
+                    }
+                    else
+                    {
+                        MessageBox.Show("There are errors in the output of roles", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return null;
+                    }
                 }
                 return roles;
             }
@@ -36,9 +46,9 @@ namespace ApplicationStore_AdministratorForm_Add
             }
         }
 
-        public Image AddIcon(out string imageExtension)
+        public static Image AddIcon(out string imageExtension)
         {
-            byte[] imageByte = UnitLogicInterfaceControl.SearchImage(out imageExtension);
+            byte[] imageByte = LogicControl.SearchImage(out imageExtension);
 
             using (MemoryStream ms = new MemoryStream(imageByte))
             {
@@ -47,9 +57,9 @@ namespace ApplicationStore_AdministratorForm_Add
             }
         }
 
-        public void LogicDataApp(Data_LogicDataApp data)
+        public static void LogicDataApp(Data_LogicDataApp data)
         {
-            byte[] imageBytes = UnitLogicInterfaceControl.GetImageBytes(data.Icon, data.Extension);
+            byte[] imageBytes = LogicControl.GetImageBytes(data.Icon, data.Extension);
             IEnumerable<byte> idrole = from roleName 
                                        in data.Roles 
                                        where roleName.NameRole == 
@@ -63,7 +73,11 @@ namespace ApplicationStore_AdministratorForm_Add
             }
 
             Data_AddAppInDB dataApp = new Data_AddAppInDB(data.User, imageBytes, data.Name, data.Description, idRole, data.Restrictions.Checked);
-            ToAddAppInDB.AddApp(dataApp);            
+
+            if (ChecksData.ChecksData_App(dataApp))
+            {
+                ToAddAppInDB.AddApp(dataApp);
+            }            
         }
     }
 }

@@ -2,13 +2,14 @@
 using ApplicationStore_AdministratorForm_Edit;
 using System;
 using System.Windows.Forms;
+using MSD;
 
 namespace ApplicationStore_AdministratorForm
 {
     public partial class AdministratorForm : Form
     {
-        MSD.User user;
-        public AdministratorForm(MSD.User user)
+        User user;
+        public AdministratorForm(User user)
         {
             InitializeComponent();
             this.user = user;
