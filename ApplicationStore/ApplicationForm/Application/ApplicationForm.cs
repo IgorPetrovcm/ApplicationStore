@@ -1,10 +1,10 @@
 ﻿using ApplicationStore;
-using ApplicationStore_AdministratorForm_Add;
 using MSD;
 using MySql.Data.MySqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using ApplicationStore_ApplicationForm_AdminPassword;
 
 namespace ApplicationStore_ApplicationForm
 {

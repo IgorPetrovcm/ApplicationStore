@@ -12,7 +12,7 @@ using MDBC;
 using MySql.Data.MySqlClient;
 using ApplicationStore.ApplicationForm;
 
-namespace ApplicationStore_ApplicationForm
+namespace ApplicationStore_ApplicationForm_AdminPassword
 {
     public partial class RequestAdminPasswordForm : Form
     {
@@ -22,29 +22,11 @@ namespace ApplicationStore_ApplicationForm
         {
             InitializeComponent();
             this.user = user;
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (MySqlDataReader reader = GetResultDB.GetReader($"select user_password from users where user_id = {user.Id}"))
-            {
-                while (reader.Read())
-                {
-                    if (user_passwordBox.Text == (string)reader.GetValue(0))
-                    {
-                        ApplicationEditForm edit = new ApplicationEditForm(app);
-                        edit.Show();
-
-                        this.Close();
-                    }
-                    else
-                    {
-                        this.Close();
-                    }
-                }
-            }
+            LogicControl.CheckPassword(user, user_passwordBox,app,this);
         }
     }
 }

@@ -64,6 +64,7 @@
     <Compile Include="AdministratorForm\AdministratorForm.Designer.cs">
       <DependentUpon>AdministratorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ApplicationForm\AdminPassword\LogicControl\LogicControl.cs" />
     <Compile Include="ApplicationForm\EditApplication\ApplicationEditForm.cs">
       <SubType>Form</SubType>
     </Compile>

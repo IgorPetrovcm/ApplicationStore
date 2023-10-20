@@ -1,4 +1,4 @@
-﻿namespace ApplicationStore_ApplicationForm
+﻿namespace ApplicationStore_ApplicationForm_AdminPassword
 {
     partial class RequestAdminPasswordForm
     {
