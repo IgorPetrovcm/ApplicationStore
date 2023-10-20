@@ -25,13 +25,7 @@ namespace ApplicationStore_ApplicationForm
             Data_ControlsToForm data = new Data_ControlsToForm(icon_appBox, user_nameText, roleText, restrictionChkBox, textBox1);
             Data_ControlsToForm data_form = LogicControl.GetAppInfo(data,app);
 
-            icon_appBox = data_form.Image;
-            user_nameText = data_form.User_Name;
-            roleText = data_form.Role;
-            restrictionChkBox = data_form.Restrictions;
-            textBox1 = data_form.Description;
-
-
+            LogicControl.GetInterface(out icon_appBox, out user_nameText, out roleText, out restrictionChkBox, out textBox1,data_form);
         }
 
         private void button1_Click(object sender, System.EventArgs e)

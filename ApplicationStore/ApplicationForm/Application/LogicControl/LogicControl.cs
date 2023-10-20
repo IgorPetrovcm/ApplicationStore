@@ -4,13 +4,14 @@ using MSD;
 using MySql.Data.MySqlClient;
 using System.Drawing;
 using System.IO;
+using System.Windows.Forms;
 
 namespace ApplicationStore_ApplicationForm
 {
     public static class LogicControl
     {
 
-        public static Data_ControlsToForm GetAppInfo(Data_ControlsToForm data,App app)
+        public static Data_ControlsToForm GetAppInfo(Data_ControlsToForm data, App app)
         {
             MySqlDataReader reader;
             using (reader = GetResultDB.GetReader($"select user_login from users where {app.UserId}"))
@@ -42,6 +43,15 @@ namespace ApplicationStore_ApplicationForm
             data.Restrictions.Enabled = false;
 
             return data;
+        }
+
+        public static void GetInterface(out PictureBox icon, out Label nameUser, out Label roleUser, out CheckBox restriction, out TextBox destriction, Data_ControlsToForm dc)
+        {
+            icon = dc.Image;
+            nameUser = dc.User_Name;
+            roleUser = dc.Role;
+            restriction = dc.Restrictions;
+            destriction = dc.Description;
         }
     }
 }

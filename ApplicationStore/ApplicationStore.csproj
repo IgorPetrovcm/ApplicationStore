@@ -64,26 +64,26 @@
     <Compile Include="AdministratorForm\AdministratorForm.Designer.cs">
       <DependentUpon>AdministratorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ApplicationForm\ApplicationEditForm.cs">
+    <Compile Include="ApplicationForm\EditApplication\ApplicationEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ApplicationForm\ApplicationEditForm.Designer.cs">
+    <Compile Include="ApplicationForm\EditApplication\ApplicationEditForm.Designer.cs">
       <DependentUpon>ApplicationEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ApplicationForm\RequestAdminPassword.cs">
+    <Compile Include="ApplicationForm\AdminPassword\RequestAdminPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ApplicationForm\RequestAdminPassword.Designer.cs">
+    <Compile Include="ApplicationForm\AdminPassword\RequestAdminPassword.Designer.cs">
       <DependentUpon>RequestAdminPassword.cs</DependentUpon>
     </Compile>
     <Compile Include="MainChecks\ChecksData.cs" />
     <Compile Include="MainChecks\ChecksEntities.cs" />
     <Compile Include="MainDBConnection.cs" />
     <Compile Include="MainStructData\App.cs" />
-    <Compile Include="ApplicationForm\ApplicationForm.cs">
+    <Compile Include="ApplicationForm\Application\ApplicationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ApplicationForm\ApplicationForm.Designer.cs">
+    <Compile Include="ApplicationForm\Application\ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Authorization\LogicControl\LogicControl.cs" />
@@ -106,8 +106,8 @@
     </Compile>
     <Compile Include="AdministratorForm\AdminEditApp\LogicControl\LogicControl.cs" />
     <Compile Include="AdministratorForm\AdminEditApp\LogicControl\GetDataApp.cs" />
-    <Compile Include="ApplicationForm\LogicControl\LogicControl.cs" />
-    <Compile Include="ApplicationForm\DataStructures\Data_ControlsToForm.cs" />
+    <Compile Include="ApplicationForm\Application\LogicControl\LogicControl.cs" />
+    <Compile Include="ApplicationForm\Application\DataStructures\Data_ControlsToForm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AdministratorForm\AdminAddApp\LogicControl\LogicControl.cs" />
@@ -122,13 +122,13 @@
     <EmbeddedResource Include="AdministratorForm\AdminAddApp\AddApplicationForm.resx">
       <DependentUpon>AddApplicationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ApplicationForm\ApplicationEditForm.resx">
+    <EmbeddedResource Include="ApplicationForm\EditApplication\ApplicationEditForm.resx">
       <DependentUpon>ApplicationEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ApplicationForm\ApplicationForm.resx">
+    <EmbeddedResource Include="ApplicationForm\Application\ApplicationForm.resx">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ApplicationForm\RequestAdminPassword.resx">
+    <EmbeddedResource Include="ApplicationForm\AdminPassword\RequestAdminPassword.resx">
       <DependentUpon>RequestAdminPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Authorization\AuthorizationForm.resx">
