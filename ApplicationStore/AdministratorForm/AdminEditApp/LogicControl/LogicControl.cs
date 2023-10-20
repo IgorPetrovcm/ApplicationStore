@@ -15,7 +15,7 @@ namespace ApplicationStore_AdministratorForm_Edit
 {
     public class LogicControl
     {
-        public static List<Control> PanelAddAppToDB()
+        public static List<Control> PanelAddAppToDB(User user)
         {
             List<Control> controls = new List<Control>();
             List<App> apps = GetDataApps.GetAppTest();
@@ -23,7 +23,7 @@ namespace ApplicationStore_AdministratorForm_Edit
             foreach (App app in apps)
             {
                 controls.Add(PropertyStructure.GetNameAppBox(app));
-                controls.Add(PropertyStructure.GetIconApp(app));
+                controls.Add(PropertyStructure.GetIconApp(app,user));
             }
             
             return controls;

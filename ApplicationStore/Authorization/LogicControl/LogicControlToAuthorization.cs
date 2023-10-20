@@ -11,13 +11,10 @@ namespace ApplicationStore_AuthorizationForm
     {
         public static User ReaderDBRequest(string login, string password)
         {
+            User user = new User();
 
             MySqlDataReader reader = GetResultDB.GetReader("select user_id,user_login,user_yearbirth,user_id_role from users " +
                 $"where user_login = '{login}' and user_password = '{password}'");
-
-            byte idUser = 0, idRoleUser = 0;
-            string loginUser = null;
-            int birthUser = 0;
 
             while (reader.Read())
             {
@@ -25,26 +22,23 @@ namespace ApplicationStore_AuthorizationForm
                 {
                     if (reader.GetName(i) == "user_id")
                     {
-                        idUser = Convert.ToByte(reader.GetValue(i));
+                        user.Id = Convert.ToByte(reader.GetValue(i));
                     }
                     if (reader.GetName(i) == "user_login")
                     {
-                        loginUser = Convert.ToString(reader.GetValue(i));
+                        user.Login = Convert.ToString(reader.GetValue(i));
                     }
                     if (reader.GetName(i) == "user_yearbirth")
                     {
-                        birthUser = Convert.ToInt32(reader.GetValue(i));
+                        user.Yearbirth = Convert.ToInt32(reader.GetValue(i));
                     }
                     if (reader.GetName(i) == "user_id_role")
                     {
-                        idRoleUser = Convert.ToByte(reader.GetValue(i));
+                        user.IdRole = Convert.ToByte(reader.GetValue(i));
                     }
                 }
             }
 
-            User user = new User(idUser, loginUser, birthUser, idRoleUser);
-
-            MessageBox.Show("Connection");
             return user;
         }
     }

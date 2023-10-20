@@ -64,6 +64,12 @@
     <Compile Include="AdministratorForm\AdministratorForm.Designer.cs">
       <DependentUpon>AdministratorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ApplicationForm\ApplicationEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationForm\ApplicationEditForm.Designer.cs">
+      <DependentUpon>ApplicationEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ApplicationForm\RequestAdminPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdministratorForm\AdminAddApp\AddApplicationForm.resx">
       <DependentUpon>AddApplicationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationForm\ApplicationEditForm.resx">
+      <DependentUpon>ApplicationEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ApplicationForm\ApplicationForm.resx">
       <DependentUpon>ApplicationForm.cs</DependentUpon>

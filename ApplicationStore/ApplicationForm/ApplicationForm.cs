@@ -23,7 +23,7 @@ namespace ApplicationStore_ApplicationForm
         private void ApplicationForm_Load(object sender, System.EventArgs e)
         {
             Data_ControlsToForm data = new Data_ControlsToForm(icon_appBox, user_nameText, roleText, restrictionChkBox, textBox1);
-            Data_ControlsToForm data_form = LogicControl.GetAppInfo(app, data);
+            Data_ControlsToForm data_form = LogicControl.GetAppInfo(data,app);
 
             icon_appBox = data_form.Image;
             user_nameText = data_form.User_Name;
