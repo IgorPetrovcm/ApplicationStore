@@ -24,14 +24,22 @@ namespace ApplicationStore.ApplicationForm
 
         private void ApplicationEditForm_Load(object sender, EventArgs e)
         {
-            using (MySqlDataReader reader = GetResultDB.GetReader($"select user_login from users where {app.UserId}"))
+            using (MySqlDataReader reader = GetResultDB.GetReader($"select user_login from users where user_id = {app.UserId}"))
             {
                 while (reader.Read())
                 {
                     user_nameText.Text = reader.GetString(0);
                 }
-
             }
+            using (MySqlDataReader reader = GetResultDB.GetReader($"select role_name from roles where role_id = '{app.RoleId}'"))
+            {
+                while (reader.Read())
+                {
+                    cmbRolesBox.Items.Add((string)reader.GetValue(0));
+                    cmbRolesBox.SelectedIndex = 0;
+                }
+            }
+
         }
     }
 }

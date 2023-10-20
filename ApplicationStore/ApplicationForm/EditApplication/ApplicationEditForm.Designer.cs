@@ -37,7 +37,7 @@
             this.text2 = new System.Windows.Forms.Label();
             this.btnSaveNewApp = new System.Windows.Forms.Button();
             this.user_nameText = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbRolesBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.icon_appBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,20 +126,20 @@
             this.user_nameText.TabIndex = 13;
             this.user_nameText.Text = "label3";
             // 
-            // comboBox1
+            // cmbRolesBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(285, 124);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(153, 24);
-            this.comboBox1.TabIndex = 17;
+            this.cmbRolesBox.FormattingEnabled = true;
+            this.cmbRolesBox.Location = new System.Drawing.Point(285, 124);
+            this.cmbRolesBox.Name = "cmbRolesBox";
+            this.cmbRolesBox.Size = new System.Drawing.Size(153, 24);
+            this.cmbRolesBox.TabIndex = 17;
             // 
             // ApplicationEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(488, 453);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbRolesBox);
             this.Controls.Add(this.btnSaveNewApp);
             this.Controls.Add(this.text2);
             this.Controls.Add(this.textBox1);
@@ -169,6 +169,6 @@
         private System.Windows.Forms.Label text2;
         private System.Windows.Forms.Button btnSaveNewApp;
         private System.Windows.Forms.Label user_nameText;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbRolesBox;
     }
 }

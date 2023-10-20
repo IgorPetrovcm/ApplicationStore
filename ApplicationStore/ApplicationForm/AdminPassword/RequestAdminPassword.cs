@@ -22,6 +22,7 @@ namespace ApplicationStore_ApplicationForm_AdminPassword
         {
             InitializeComponent();
             this.user = user;
+            this.app = app;
         }
 
         private void button1_Click(object sender, EventArgs e)
