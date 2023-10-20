@@ -64,6 +64,20 @@
     <Compile Include="AdministratorForm\AdministratorForm.Designer.cs">
       <DependentUpon>AdministratorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ApplicationForm\ApplicationEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationForm\ApplicationEditForm.Designer.cs">
+      <DependentUpon>ApplicationEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationForm\RequestAdminPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationForm\RequestAdminPassword.Designer.cs">
+      <DependentUpon>RequestAdminPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainChecks\ChecksData.cs" />
+    <Compile Include="MainChecks\ChecksEntities.cs" />
     <Compile Include="MainDBConnection.cs" />
     <Compile Include="MainStructData\App.cs" />
     <Compile Include="ApplicationForm\ApplicationForm.cs">
@@ -72,8 +86,7 @@
     <Compile Include="ApplicationForm\ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Authorization\LogicControl\LogicControlToAuthorization.cs" />
-    <Compile Include="Authorization\LogicControl\LogicOfCheckingAccessToDB.cs" />
+    <Compile Include="Authorization\LogicControl\LogicControl.cs" />
     <Compile Include="Authorization\AuthorizationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,7 +110,7 @@
     <Compile Include="ApplicationForm\DataStructures\Data_ControlsToForm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AdministratorForm\AdminAddApp\LogicControl\UnitLogicInterfaceControl.cs" />
+    <Compile Include="AdministratorForm\AdminAddApp\LogicControl\LogicControl.cs" />
     <Compile Include="MainStructData\Roles.cs" />
     <Compile Include="MainStructData\User.cs" />
     <EmbeddedResource Include="AdministratorForm\AdminEditApp\EditApplicationForm.resx">
@@ -109,8 +122,14 @@
     <EmbeddedResource Include="AdministratorForm\AdminAddApp\AddApplicationForm.resx">
       <DependentUpon>AddApplicationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationForm\ApplicationEditForm.resx">
+      <DependentUpon>ApplicationEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ApplicationForm\ApplicationForm.resx">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationForm\RequestAdminPassword.resx">
+      <DependentUpon>RequestAdminPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Authorization\AuthorizationForm.resx">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>

@@ -22,5 +22,9 @@ namespace MSD//Main Struct Data
         {
             Id = id; Login = login; Yearbirth = yearbirth; IdRole = idrole;
         }
+        public User()
+        {
+            
+        }
     }
 }

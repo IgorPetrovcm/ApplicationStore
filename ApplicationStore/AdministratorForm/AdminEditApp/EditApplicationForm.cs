@@ -21,7 +21,7 @@ namespace ApplicationStore_AdministratorForm_Edit
 
         private void EditApplicationForm_Load(object sender, EventArgs e)
         {
-            List<Control> controls = LogicControl.PanelAddAppToDB();
+            List<Control> controls = LogicControl.PanelAddAppToDB(user);
             foreach (Control control in controls)
             {
                 panel1.Controls.Add(control);

@@ -35,38 +35,6 @@ namespace ApplicationStore_AdministratorForm_Add
             CheckBox restrictions
             ) : this()
         {
-            if (icon == null) { 
-                MessageBox.Show("Icon not selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                return; 
-            }
-            if (extension == null) { 
-                MessageBox.Show("Extension missing", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                return; 
-            }
-            if (roles == null) { 
-                MessageBox.Show("Total error. Roles missing", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                return; 
-            }
-            if (cmb_roles.SelectedItem.ToString() == null) { 
-                MessageBox.Show("Roles not selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                return; 
-            }
-            if (user == null) { 
-                MessageBox.Show("Total error. User missing", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                return; 
-            }
-            if (name == null) { 
-                MessageBox.Show("Name not selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                return; 
-            }
-            if (description == null) { 
-                MessageBox.Show("Description not selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                return; 
-            }
-            if (restrictions == null) { 
-                MessageBox.Show("Total error. Restrictions missing", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                return; 
-            }
 
             Icon = icon;
             Extension = extension;

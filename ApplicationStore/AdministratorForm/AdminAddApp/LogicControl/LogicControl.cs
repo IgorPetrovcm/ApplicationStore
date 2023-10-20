@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace ApplicationStore_AdministratorForm_Add
 {
-    public static class UnitLogicInterfaceControl
+    public static class LogicControl
     {
         public static byte[] SearchImage(out string imageExtension)
         {

@@ -1,4 +1,5 @@
 ﻿using ApplicationStore;
+using ApplicationStore_AdministratorForm_Add;
 using MSD;
 using MySql.Data.MySqlClient;
 using System.Drawing;
@@ -10,23 +11,35 @@ namespace ApplicationStore_ApplicationForm
     public partial class ApplicationForm : Form
     {
         App app;
-        public ApplicationForm(App app)
+        User user;
+        public ApplicationForm(App app, User user)
         {
             InitializeComponent();
 
             this.app = app;
+            this.user = user;
         }
 
         private void ApplicationForm_Load(object sender, System.EventArgs e)
         {
             Data_ControlsToForm data = new Data_ControlsToForm(icon_appBox, user_nameText, roleText, restrictionChkBox, textBox1);
-            Data_ControlsToForm data_form = LogicControl.GetAppInfo(app, data);
+            Data_ControlsToForm data_form = LogicControl.GetAppInfo(data,app);
 
             icon_appBox = data_form.Image;
             user_nameText = data_form.User_Name;
             roleText = data_form.Role;
             restrictionChkBox = data_form.Restrictions;
             textBox1 = data_form.Description;
+
+
+        }
+
+        private void button1_Click(object sender, System.EventArgs e)
+        {
+            RequestAdminPasswordForm requestAdmin_passwordForm = new RequestAdminPasswordForm(user);
+            requestAdmin_passwordForm.ShowDialog();
+
+            this.Close();
         }
     }
 }
