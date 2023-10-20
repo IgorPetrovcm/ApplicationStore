@@ -17,6 +17,13 @@ namespace ApplicationStore_AdministratorForm_Add
             InitializeComponent();
 
             this.user = user;
+
+            roles = LogicInterfaceControl.AddRole();
+
+            foreach (Roles role in roles)
+            {
+                cmbRolesBox.Items.Add(role.NameRole);
+            }
         }
 
         private void btnAddIcon_Click(object sender, EventArgs e)
@@ -30,14 +37,5 @@ namespace ApplicationStore_AdministratorForm_Add
             LogicInterfaceControl.LogicDataApp(data);
         }
 
-        private void AddApplicationForm_Load(object sender, EventArgs e)
-        {
-            roles = LogicInterfaceControl.AddRole();
-
-            foreach (Roles role in roles)
-            {
-                cmbRolesBox.Items.Add(role.NameRole);
-            }
-        }
     }
 }

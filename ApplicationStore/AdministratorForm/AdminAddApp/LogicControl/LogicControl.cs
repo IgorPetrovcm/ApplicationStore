@@ -1,4 +1,5 @@
-﻿using System.Drawing.Imaging;
+﻿using MCh;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 
@@ -47,6 +48,18 @@ namespace ApplicationStore_AdministratorForm_Add
             {
                 MessageBox.Show("Error read extension image", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
+            }
+        }
+
+        public static void AddApp(Data_LogicDataApp data)
+        {
+            if (ChecksData.ChecksDataLogic_App(data))
+            {
+                LogicInterfaceControl.LogicDataApp(data);
+            }
+            else
+            {
+                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

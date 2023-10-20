@@ -44,7 +44,7 @@ namespace MCh
             return true;
         }
 
-        public static bool CheckesDataLogic_App(Data_LogicDataApp data)
+        public static bool ChecksDataLogic_App(Data_LogicDataApp data)
         {
             if (data.Icon == null)
             {
