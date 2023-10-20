@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MDBC;
+﻿using MDBC;
 using MSD;
 using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+using MCh;
 
 namespace ApplicationStore.ApplicationForm
 {
@@ -24,6 +19,8 @@ namespace ApplicationStore.ApplicationForm
 
         private void ApplicationEditForm_Load(object sender, EventArgs e)
         {
+            List<Roles> roles = new List<Roles>();
+
             using (MySqlDataReader reader = GetResultDB.GetReader($"select user_login from users where user_id = {app.UserId}"))
             {
                 while (reader.Read())
@@ -39,7 +36,25 @@ namespace ApplicationStore.ApplicationForm
                     cmbRolesBox.SelectedIndex = 0;
                 }
             }
+            using (MySqlDataReader reader = GetResultDB.GetReader($"select * from roles"))
+            {
+                while (reader.Read())
+                {
+                    Roles role = new Roles((byte)reader.GetValue(0), (string)reader.GetValue(1));
+                    if (ChecksEntities.CheckRole(role))
+                    {
+                        cmbRolesBox.Items.Add(role);
+                    }
+                }
+            }
 
+            using (MySqlDataReader reader = GetResultDB.GetReader($"select app_ageRestriction from application_test where app_id = {app.Id}"))
+            {
+                while (reader.Read())
+                {
+                    restrictionChkBox.Checked = (bool)reader.GetValue(0);
+                }
+            }
         }
     }
 }
