@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using MCh;
+using System.IO;
+using System.Drawing;
 
 namespace ApplicationStore.ApplicationForm
 {
@@ -53,6 +55,18 @@ namespace ApplicationStore.ApplicationForm
                 while (reader.Read())
                 {
                     restrictionChkBox.Checked = (bool)reader.GetValue(0);
+                }
+            }
+
+            using (MySqlDataReader reader = GetResultDB.GetReader($"select app_image from application_test where app_id = {app.Id}"))
+            {
+                while (reader.Read())
+                {
+                    byte[] imageBytes = (byte[])reader.GetValue(0);
+
+                    MemoryStream ms = new MemoryStream(imageBytes);
+
+                    icon_appBox.Image = Image.FromStream(ms);   
                 }
             }
         }
