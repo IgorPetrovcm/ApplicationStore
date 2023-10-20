@@ -36,10 +36,10 @@ namespace ApplicationStore_ApplicationForm
 
         private void button1_Click(object sender, System.EventArgs e)
         {
-            RequestAdminPasswordForm requestAdmin_passwordForm = new RequestAdminPasswordForm(user,app);
-            requestAdmin_passwordForm.ShowDialog();
+            Close();
 
-            this.Close();
+            RequestAdminPasswordForm requestAdmin_passwordForm = new RequestAdminPasswordForm(user, app);
+            requestAdmin_passwordForm.Show();
         }
     }
 }

@@ -34,16 +34,13 @@ namespace ApplicationStore_ApplicationForm
                 {
                     if (user_passwordBox.Text == (string)reader.GetValue(0))
                     {
-                        ApplicationEditForm editForm = new ApplicationEditForm(app);
-                        editForm.ShowDialog();
+                        ApplicationEditForm edit = new ApplicationEditForm(app);
+                        edit.Show();
 
                         this.Close();
                     }
                     else
                     {
-                        ApplicationForm appForm = new ApplicationForm(app,user);
-                        appForm.ShowDialog();
-
                         this.Close();
                     }
                 }
