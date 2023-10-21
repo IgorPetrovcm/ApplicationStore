@@ -53,7 +53,7 @@ namespace ApplicationStore_AdministratorForm_Add
 
         public static void AddApp(Data_LogicDataApp data)
         {
-            if (ChecksData.ChecksDataLogic_App(data))
+            if (ChecksData.ChecksDataLogic_App_Add(data))
             {
                 LogicInterfaceControl.LogicDataApp(data);
             }

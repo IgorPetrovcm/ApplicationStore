@@ -21,7 +21,7 @@ namespace ApplicationStore_ApplicationForm
 
         private void ApplicationEditForm_Load(object sender, EventArgs e)
         {
-            List<Roles> roles = new List<Roles>();
+            /*List<Roles> roles = new List<Roles>();
 
             using (MySqlDataReader reader = GetResultDB.GetReader($"select user_login from users where user_id = {app.UserId}"))
             {
@@ -68,10 +68,10 @@ namespace ApplicationStore_ApplicationForm
 
                     icon_appBox.Image = Image.FromStream(ms);
 
-/*                    icon_appBox.DoubleClick += (sender, e) =>
+*//*                    icon_appBox.DoubleClick += (sender, e) =>
                     {
 
-                    };*/
+                    };*//*
                 }
             }
             using (MySqlDataReader reader = GetResultDB.GetReader($"select app_description from application_test where app_id = {app.Id}"))
@@ -87,7 +87,7 @@ namespace ApplicationStore_ApplicationForm
                 {
                     nameBox.Text = (string)reader.GetValue(0);
                 }
-            }
+            }*/
         }
     }
 }

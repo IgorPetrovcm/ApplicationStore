@@ -78,6 +78,7 @@
       <DependentUpon>RequestAdminPassword.cs</DependentUpon>
     </Compile>
     <Compile Include="ApplicationForm\EditApplication\DataStructures\Data_ControlInterface.cs" />
+    <Compile Include="ApplicationForm\EditApplication\LogicControl\LogicReadControl.cs" />
     <Compile Include="MainChecks\ChecksData.cs" />
     <Compile Include="MainChecks\ChecksEntities.cs" />
     <Compile Include="MainDBConnection.cs" />

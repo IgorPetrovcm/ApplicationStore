@@ -74,7 +74,7 @@ namespace ApplicationStore_AdministratorForm_Add
 
             Data_AddAppInDB dataApp = new Data_AddAppInDB(data.User, imageBytes, data.Name, data.Description, idRole, data.Restrictions.Checked);
 
-            if (ChecksData.ChecksData_App(dataApp))
+            if (ChecksData.ChecksData_App_Add(dataApp))
             {
                 ToAddAppInDB.AddApp(dataApp);
             }            
