@@ -1,4 +1,4 @@
-﻿namespace ApplicationStore.ApplicationForm
+﻿namespace ApplicationStore_ApplicationForm
 {
     partial class ApplicationEditForm
     {
@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.icon_appBox = new System.Windows.Forms.PictureBox();
-            this.nameText = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.text1 = new System.Windows.Forms.Label();
             this.restrictionChkBox = new System.Windows.Forms.CheckBox();
@@ -38,6 +37,7 @@
             this.btnSaveNewApp = new System.Windows.Forms.Button();
             this.user_nameText = new System.Windows.Forms.Label();
             this.cmbRolesBox = new System.Windows.Forms.ComboBox();
+            this.nameBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.icon_appBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,15 +48,6 @@
             this.icon_appBox.Size = new System.Drawing.Size(130, 130);
             this.icon_appBox.TabIndex = 1;
             this.icon_appBox.TabStop = false;
-            // 
-            // nameText
-            // 
-            this.nameText.AutoSize = true;
-            this.nameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nameText.Location = new System.Drawing.Point(22, 9);
-            this.nameText.Name = "nameText";
-            this.nameText.Size = new System.Drawing.Size(0, 20);
-            this.nameText.TabIndex = 2;
             // 
             // label1
             // 
@@ -134,11 +125,19 @@
             this.cmbRolesBox.Size = new System.Drawing.Size(153, 24);
             this.cmbRolesBox.TabIndex = 17;
             // 
+            // nameBox
+            // 
+            this.nameBox.Location = new System.Drawing.Point(12, 12);
+            this.nameBox.Name = "nameBox";
+            this.nameBox.Size = new System.Drawing.Size(220, 22);
+            this.nameBox.TabIndex = 18;
+            // 
             // ApplicationEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(488, 453);
+            this.Controls.Add(this.nameBox);
             this.Controls.Add(this.cmbRolesBox);
             this.Controls.Add(this.btnSaveNewApp);
             this.Controls.Add(this.text2);
@@ -147,7 +146,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.text1);
             this.Controls.Add(this.restrictionChkBox);
-            this.Controls.Add(this.nameText);
             this.Controls.Add(this.icon_appBox);
             this.Name = "ApplicationEditForm";
             this.Text = "ApplicationEditForm";
@@ -161,7 +159,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox icon_appBox;
-        private System.Windows.Forms.Label nameText;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label text1;
         private System.Windows.Forms.CheckBox restrictionChkBox;
@@ -170,5 +167,6 @@
         private System.Windows.Forms.Button btnSaveNewApp;
         private System.Windows.Forms.Label user_nameText;
         private System.Windows.Forms.ComboBox cmbRolesBox;
+        private System.Windows.Forms.TextBox nameBox;
     }
 }

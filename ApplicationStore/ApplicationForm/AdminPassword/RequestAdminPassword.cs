@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using MSD;
 using MDBC;
 using MySql.Data.MySqlClient;
-using ApplicationStore.ApplicationForm;
+using ApplicationStore_ApplicationForm;
 
 namespace ApplicationStore_ApplicationForm_AdminPassword
 {

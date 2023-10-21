@@ -77,6 +77,7 @@
     <Compile Include="ApplicationForm\AdminPassword\RequestAdminPassword.Designer.cs">
       <DependentUpon>RequestAdminPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="ApplicationForm\EditApplication\DataStructures\Data_ControlInterface.cs" />
     <Compile Include="MainChecks\ChecksData.cs" />
     <Compile Include="MainChecks\ChecksEntities.cs" />
     <Compile Include="MainDBConnection.cs" />

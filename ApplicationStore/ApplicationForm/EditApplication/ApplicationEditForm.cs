@@ -8,7 +8,7 @@ using MCh;
 using System.IO;
 using System.Drawing;
 
-namespace ApplicationStore.ApplicationForm
+namespace ApplicationStore_ApplicationForm
 {
     public partial class ApplicationEditForm : Form
     {
@@ -79,6 +79,13 @@ namespace ApplicationStore.ApplicationForm
                 while (reader.Read())
                 {
                     descriptionBox.Text = (string)reader.GetValue(0);
+                }
+            }
+            using (MySqlDataReader reader = GetResultDB.GetReader($"select app_name from application_test where app_id = {app.Id}"))
+            {
+                while (reader.Read())
+                {
+                    nameBox.Text = (string)reader.GetValue(0);
                 }
             }
         }
