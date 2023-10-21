@@ -45,7 +45,7 @@ namespace ApplicationStore.ApplicationForm
                     Roles role = new Roles((byte)reader.GetValue(0), (string)reader.GetValue(1));
                     if (ChecksEntities.CheckRole(role))
                     {
-                        cmbRolesBox.Items.Add(role);
+                        cmbRolesBox.Items.Add(role.NameRole);
                     }
                 }
             }
@@ -66,7 +66,19 @@ namespace ApplicationStore.ApplicationForm
 
                     MemoryStream ms = new MemoryStream(imageBytes);
 
-                    icon_appBox.Image = Image.FromStream(ms);   
+                    icon_appBox.Image = Image.FromStream(ms);
+
+/*                    icon_appBox.DoubleClick += (sender, e) =>
+                    {
+
+                    };*/
+                }
+            }
+            using (MySqlDataReader reader = GetResultDB.GetReader($"select app_description from application_test where app_id = {app.Id}"))
+            {
+                while (reader.Read())
+                {
+                    descriptionBox.Text = (string)reader.GetValue(0);
                 }
             }
         }

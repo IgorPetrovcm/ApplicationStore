@@ -33,7 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.text1 = new System.Windows.Forms.Label();
             this.restrictionChkBox = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.descriptionBox = new System.Windows.Forms.TextBox();
             this.text2 = new System.Windows.Forms.Label();
             this.btnSaveNewApp = new System.Windows.Forms.Button();
             this.user_nameText = new System.Windows.Forms.Label();
@@ -89,13 +89,13 @@
             this.restrictionChkBox.Text = "Restrictions";
             this.restrictionChkBox.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // descriptionBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(16, 226);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(454, 215);
-            this.textBox1.TabIndex = 14;
+            this.descriptionBox.Location = new System.Drawing.Point(16, 226);
+            this.descriptionBox.Multiline = true;
+            this.descriptionBox.Name = "descriptionBox";
+            this.descriptionBox.Size = new System.Drawing.Size(454, 215);
+            this.descriptionBox.TabIndex = 14;
             // 
             // text2
             // 
@@ -142,7 +142,7 @@
             this.Controls.Add(this.cmbRolesBox);
             this.Controls.Add(this.btnSaveNewApp);
             this.Controls.Add(this.text2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.descriptionBox);
             this.Controls.Add(this.user_nameText);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.text1);
@@ -165,7 +165,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label text1;
         private System.Windows.Forms.CheckBox restrictionChkBox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox descriptionBox;
         private System.Windows.Forms.Label text2;
         private System.Windows.Forms.Button btnSaveNewApp;
         private System.Windows.Forms.Label user_nameText;
