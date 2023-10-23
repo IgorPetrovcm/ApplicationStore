@@ -17,10 +17,12 @@ namespace ApplicationStore_ApplicationForm
         {
             InitializeComponent();
             this.app = app;
+
         }
 
         private void ApplicationEditForm_Load(object sender, EventArgs e)
         {
+            cmbRolesBox = LogicReadControl.GetInterfaceControl(app.Id);
             /*List<Roles> roles = new List<Roles>();
 
             using (MySqlDataReader reader = GetResultDB.GetReader($"select user_login from users where user_id = {app.UserId}"))

@@ -16,14 +16,15 @@ namespace ApplicationStore_ApplicationForm
 {
     public static class LogicReadControl
     {
-        public static void GetInterfaceControl(Data_ControlRead data,byte user_id)
+        public static ComboBox GetInterfaceControl(byte app_id)
         {
+            ComboBox roles = GetRoles($"select * from roles");
+            return roles;
+        }        
 
-        }
-
-        public static PictureBox GetIcon(string command)
+        public static void GetIcon(string command, out PictureBox icon)
         {
-            PictureBox icon = new PictureBox();
+            icon = null;
 
             using (MySqlDataReader reader = GetResultDB.GetReader(command))
             {
@@ -33,7 +34,7 @@ namespace ApplicationStore_ApplicationForm
                     MemoryStream ms = new MemoryStream(iconBytes);
 
                     icon.Image = Image.FromStream(ms);
-                    icon.DoubleClick += (sender,e) =>
+  /*                  icon.DoubleClick += (sender, e) =>
                     {
                         OpenFileDialog dialog = new OpenFileDialog
                         {
@@ -44,12 +45,10 @@ namespace ApplicationStore_ApplicationForm
                             byte[] new_iconBytes = File.ReadAllBytes(dialog.FileName);
                             ms = new MemoryStream(new_iconBytes);
 
-
+                            icon.Image = Image.FromStream(ms);
                         }
-
-                    }
+                    };*/
                 }
-                return icon;
             }            
         }
         
@@ -60,7 +59,7 @@ namespace ApplicationStore_ApplicationForm
             {
                 while (reader.Read())
                 {
-                    roles.Items.Add((string)reader.GetValue(0));
+                    roles.Items.Add((string)reader.GetValue(1));
                     roles.SelectedIndex = 0;
                 }
             }
