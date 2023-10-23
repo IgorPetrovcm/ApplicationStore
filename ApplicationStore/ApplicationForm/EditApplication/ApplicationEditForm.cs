@@ -34,6 +34,15 @@ namespace ApplicationStore_ApplicationForm
 
             byte index = LogicReadControl.GetSelectedIndexFromRoles($"select app_role_id from application_test where app_id = {app.Id}");
             cmbRolesBox.SelectedIndex = index-1;
+
+            byte user_id = LogicReadControl.GetIdUploadedUser($"select app_users_id from application_test where app_id = {app.Id}");
+            user_nameText.Text = LogicReadControl.GetNameUploadedUser($"select user_login from users where user_id = {user_id}");
+
+            nameBox.Text = LogicReadControl.GetNameApp($"select app_name from application_test where app_id = {app.Id}");
+
+            descriptionBox.Text = LogicReadControl.GetDescription($"select app_description from application_test where app_id = {app.Id}");
+
+            restrictionChkBox.Checked = LogicReadControl.GetRestrictions($"select app_ageRestriction from application_test where app_id = {app.Id}");
             /*List<Roles> roles = new List<Roles>();
 
             using (MySqlDataReader reader = GetResultDB.GetReader($"select user_login from users where user_id = {app.UserId}"))

@@ -66,6 +66,65 @@ namespace ApplicationStore_ApplicationForm
             return index;
         }
 
+        public static byte GetIdUploadedUser(string command)
+        {
+            MySqlDataReader reader = GetResultDB.GetReader(command);
+
+            byte user_id = 0;
+            while (reader.Read())
+            {
+                user_id = (byte)reader.GetValue(0);
+            }
+            return user_id;
+        }
+        public static string GetNameUploadedUser(string command)
+        {
+            MySqlDataReader reader = GetResultDB.GetReader(command);
+
+            string name = null;
+            while (reader.Read())
+            {
+                name = (string)reader.GetValue(0);
+            }
+            return name;
+        }
+
+        public static string GetNameApp(string command)
+        {
+            MySqlDataReader reader = GetResultDB.GetReader(command);
+
+            string app_name = null;
+            while (reader.Read())
+            {
+                app_name = (string)reader.GetValue(0);
+            }
+            return app_name;
+        }
+
+        public static string GetDescription(string command)
+        {
+            MySqlDataReader reader = GetResultDB.GetReader(command);
+
+            string description = null;
+            while (reader.Read())
+            {
+                description = (string)reader.GetValue(0);
+            }
+            return description;
+        }
+
+        public static bool GetRestrictions(string command)
+        {
+            MySqlDataReader reader = GetResultDB.GetReader(command);
+
+            bool restrictions = false;
+            while (reader.Read())
+            {
+                restrictions = (bool)reader.GetValue(0);
+            }
+            return restrictions;
+        }
+
         public static void GetIcon(string command, out PictureBox icon)
         {
             icon = null;
