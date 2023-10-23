@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using MCh;
 using System.IO;
 using System.Drawing;
+using ApplicationStore_AdministratorForm_Add;
 
 namespace ApplicationStore_ApplicationForm
 {
@@ -22,7 +23,17 @@ namespace ApplicationStore_ApplicationForm
 
         private void ApplicationEditForm_Load(object sender, EventArgs e)
         {
-            cmbRolesBox = LogicReadControl.GetInterfaceControl(app.Id);
+
+            icon_appBox.Image = LogicReadControl.GetImage($"select app_image from application_test where app_id = {app.Id}");
+
+            List<Roles> roles = LogicReadControl.GetItemsFromRoles("select * from roles");
+            foreach (Roles role in roles)
+            {
+                cmbRolesBox.Items.Add(role.NameRole);
+            }
+
+            byte index = LogicReadControl.GetSelectedIndexFromRoles($"select app_role_id from application_test where app_id = {app.Id}");
+            cmbRolesBox.SelectedIndex = index-1;
             /*List<Roles> roles = new List<Roles>();
 
             using (MySqlDataReader reader = GetResultDB.GetReader($"select user_login from users where user_id = {app.UserId}"))

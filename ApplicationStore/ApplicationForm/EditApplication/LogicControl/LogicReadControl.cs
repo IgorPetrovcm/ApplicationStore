@@ -22,6 +22,50 @@ namespace ApplicationStore_ApplicationForm
             return roles;
         }        
 
+        public static Image GetImage(string command)
+        {
+            Image image;
+            byte[] imageBytes = null;
+            MySqlDataReader reader = GetResultDB.GetReader(command);
+            
+            while (reader.Read())
+            {
+                imageBytes = (byte[])reader.GetValue(0);
+            }
+            
+            MemoryStream ms = new MemoryStream(imageBytes);
+            image = Image.FromStream(ms);
+            return image;
+        }
+
+        public static List<Roles> GetItemsFromRoles(string command)
+        {
+            MySqlDataReader reader = GetResultDB.GetReader(command);
+            List<Roles> roles = new List<Roles>();
+
+            while (reader.Read())
+            {
+                Roles role = new Roles();
+                role.IdRole = (byte)reader.GetValue(0);
+                role.NameRole = (string)reader.GetValue(1);
+                roles.Add(role);
+            }
+            return roles;
+        }
+
+        public static byte GetSelectedIndexFromRoles(string command)
+        {
+            MySqlDataReader reader = GetResultDB.GetReader(command);
+            byte index = 0;
+
+            while (reader.Read())
+            {
+                index = (byte)reader.GetValue(0);
+
+            }
+            return index;
+        }
+
         public static void GetIcon(string command, out PictureBox icon)
         {
             icon = null;
@@ -51,6 +95,7 @@ namespace ApplicationStore_ApplicationForm
                 }
             }            
         }
+
         
         public static ComboBox GetRoles(string command)
         {

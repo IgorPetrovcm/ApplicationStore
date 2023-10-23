@@ -46,6 +46,7 @@
             this.icon_appBox.Location = new System.Drawing.Point(12, 53);
             this.icon_appBox.Name = "icon_appBox";
             this.icon_appBox.Size = new System.Drawing.Size(130, 130);
+            this.icon_appBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.icon_appBox.TabIndex = 1;
             this.icon_appBox.TabStop = false;
             // 

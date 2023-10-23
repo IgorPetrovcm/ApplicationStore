@@ -20,5 +20,9 @@ namespace MSD//Main Struct Data
             IdRole = idRole;
             NameRole = nameRole;
         }
+        public Roles()
+        {
+
+        }
     }
 }
