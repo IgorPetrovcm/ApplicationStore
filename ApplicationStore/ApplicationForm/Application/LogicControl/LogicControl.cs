@@ -14,7 +14,7 @@ namespace ApplicationStore_ApplicationForm
         public static Data_ControlsToForm GetAppInfo(Data_ControlsToForm data, App app)
         {
             MySqlDataReader reader;
-            using (reader = GetResultDB.GetReader($"select user_login from users where {app.UserId}"))
+            using (reader = GetResultDB.GetReader($"select user_login from users where user_id = {app.UserId}"))
             {
                 while (reader.Read())
                 {

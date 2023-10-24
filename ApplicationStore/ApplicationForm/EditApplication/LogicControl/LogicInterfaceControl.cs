@@ -8,17 +8,11 @@ namespace ApplicationStore_ApplicationForm
     {
         public static void GetInterface(
             byte app_id,
-            out Image image,
             out List<Roles> roles,
             out byte index,
-            out string user_name,
-            out string app_name,
-            out string description,
-            out bool restrictions
+            out string user_name
             )
         {
-            image = null;
-            image = LogicReadControl.GetImage($"select app_image from application_test where app_id = {app_id}");
 
             roles = new List<Roles>();
             roles = LogicReadControl.GetItemsFromRoles("select * from roles");
@@ -28,12 +22,6 @@ namespace ApplicationStore_ApplicationForm
 
             byte user_id = LogicReadControl.GetIdUploadedUser($"select app_users_id from application_test where app_id = {app_id}");
             user_name = LogicReadControl.GetNameUploadedUser($"select user_login from users where user_id = {user_id}");
-
-            app_name = LogicReadControl.GetNameApp($"select app_name from application_test where app_id = {app_id}");
-
-            description = LogicReadControl.GetDescription($"select app_description from application_test where app_id = {app_id}");
-
-            restrictions = LogicReadControl.GetRestrictions($"select app_ageRestriction from application_test where app_id = {app_id}");
 
         }
     }
