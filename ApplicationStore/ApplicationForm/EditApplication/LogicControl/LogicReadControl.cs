@@ -137,20 +137,6 @@ namespace ApplicationStore_ApplicationForm
                     MemoryStream ms = new MemoryStream(iconBytes);
 
                     icon.Image = Image.FromStream(ms);
-  /*                  icon.DoubleClick += (sender, e) =>
-                    {
-                        OpenFileDialog dialog = new OpenFileDialog
-                        {
-                            Filter = "image extension (*.jpg,*.jpeg,*.png)|*.jpg,*.jpeg,*.png"
-                        };
-                        if (dialog.ShowDialog() == DialogResult.OK)
-                        {
-                            byte[] new_iconBytes = File.ReadAllBytes(dialog.FileName);
-                            ms = new MemoryStream(new_iconBytes);
-
-                            icon.Image = Image.FromStream(ms);
-                        }
-                    };*/
                 }
             }            
         }
