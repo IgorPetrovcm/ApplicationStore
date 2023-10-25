@@ -32,7 +32,7 @@ namespace ApplicationStore_ApplicationForm
         {
             Close();
 
-            RequestAdminPasswordForm requestAdmin_passwordForm = new RequestAdminPasswordForm(user, app, icon_appBox.Image);
+            RequestAdminPasswordForm requestAdmin_passwordForm = new RequestAdminPasswordForm(user, app);
             requestAdmin_passwordForm.Show();
         }
     }

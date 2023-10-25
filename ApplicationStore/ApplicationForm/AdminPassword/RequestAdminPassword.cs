@@ -18,18 +18,16 @@ namespace ApplicationStore_ApplicationForm_AdminPassword
     {
         User user;
         App app;
-        Image imageIcon;
-        public RequestAdminPasswordForm(User user, App app, Image imageIcon)
+        public RequestAdminPasswordForm(User user, App app)
         {
             InitializeComponent();
             this.user = user;
             this.app = app;
-            this.imageIcon = imageIcon;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LogicControl.CheckPassword(user, user_passwordBox,app,this,imageIcon);
+            LogicControl.CheckPassword(user, user_passwordBox,app,this);
         }
     }
 }

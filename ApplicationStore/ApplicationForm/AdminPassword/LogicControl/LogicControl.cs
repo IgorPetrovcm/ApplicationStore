@@ -9,7 +9,7 @@ namespace ApplicationStore_ApplicationForm_AdminPassword
 {
     public static class LogicControl
     {
-        public static void CheckPassword(User user,TextBox password, App app, RequestAdminPasswordForm form,Image imageIcon)
+        public static void CheckPassword(User user,TextBox password, App app, RequestAdminPasswordForm form)
         {
             using (MySqlDataReader reader = GetResultDB.GetReader($"select user_password from users where user_id = {user.Id}"))
             {
@@ -17,7 +17,7 @@ namespace ApplicationStore_ApplicationForm_AdminPassword
                 {
                     if (password.Text == (string)reader.GetValue(0))
                     {
-                        ApplicationEditForm edit = new ApplicationEditForm(app,imageIcon);
+                        ApplicationEditForm edit = new ApplicationEditForm(app);
                         edit.Show();
 
                         form.Close();

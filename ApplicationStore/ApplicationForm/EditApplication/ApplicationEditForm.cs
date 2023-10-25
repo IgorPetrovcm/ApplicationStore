@@ -15,12 +15,11 @@ namespace ApplicationStore_ApplicationForm
     {
         App app;
         string imagePath;
-        Image imageIcon;
-        public ApplicationEditForm(App app, Image imageIcon)
+        bool iconEdit = false;
+        public ApplicationEditForm(App app)
         {
             InitializeComponent();
             this.app = app;
-            this.imageIcon = imageIcon;
         }
 
         private void ApplicationEditForm_Load(object sender, EventArgs e)
@@ -56,7 +55,8 @@ namespace ApplicationStore_ApplicationForm
             };
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                imagePath = dialog.FileName;
+                iconEdit = true;
+
                 byte[] new_iconBytes = File.ReadAllBytes(dialog.FileName);
                 MemoryStream ms = new MemoryStream(new_iconBytes);
 
@@ -79,7 +79,7 @@ namespace ApplicationStore_ApplicationForm
                                                                              $"where app_id = {app.Id}");
                         command.Parameters.AddWithValue("@image", imageBytes);
                         int row_add = command.ExecuteNonQuery();*/
-            if (icon_appBox.Image != imageIcon)
+            if (iconEdit == true)
             {
                 byte[] imageBytes = File.ReadAllBytes(imagePath);
                 MySqlCommand commandEditImage = GetResultDB.GetDefaultRequest($"update application_test " +
