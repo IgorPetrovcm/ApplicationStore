@@ -26,6 +26,7 @@ namespace ApplicationStore
 
         public Data_ControlsToForm(
             PictureBox image,
+            Label name_app,
             Label user_name,
             Label role,
             CheckBox restrictions,
@@ -33,6 +34,7 @@ namespace ApplicationStore
             ) : this()
         {
             Image = image;
+            Name_App = name_app;
             User_Name = user_name;
             Role = role;
             Restrictions = restrictions;

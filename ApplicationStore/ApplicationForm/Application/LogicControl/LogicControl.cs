@@ -35,6 +35,7 @@ namespace ApplicationStore_ApplicationForm
             {
                 data.Image.Image = Image.FromStream(ms);
             }
+            data.Name_App.Text = app.Name;
 
             data.Description.Text = app.Description;
             data.Description.ReadOnly = true;
@@ -45,8 +46,9 @@ namespace ApplicationStore_ApplicationForm
             return data;
         }
 
-        public static void GetInterface(out PictureBox icon, out Label nameUser, out Label roleUser, out CheckBox restriction, out TextBox destriction, Data_ControlsToForm dc)
+        public static void GetInterface(out PictureBox icon, out Label nameUser, out Label roleUser, out CheckBox restriction, out TextBox destriction, Data_ControlsToForm dc,out Label app_name)
         {
+            app_name = dc.Name_App;
             icon = dc.Image;
             nameUser = dc.User_Name;
             roleUser = dc.Role;
