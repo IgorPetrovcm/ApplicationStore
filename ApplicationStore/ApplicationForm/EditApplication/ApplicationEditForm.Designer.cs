@@ -108,6 +108,7 @@
             this.btnSaveNewApp.TabIndex = 16;
             this.btnSaveNewApp.Text = "Save";
             this.btnSaveNewApp.UseVisualStyleBackColor = true;
+            this.btnSaveNewApp.Click += new System.EventHandler(this.btnSaveNewApp_Click);
             // 
             // user_nameText
             // 

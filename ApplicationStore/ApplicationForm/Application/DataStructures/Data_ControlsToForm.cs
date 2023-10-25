@@ -11,12 +11,14 @@ namespace ApplicationStore
     public struct Data_ControlsToForm
     {
         PictureBox image;
+        Label name_app;
         Label user_name;
         Label role;
         CheckBox restrictions;
         TextBox description;
 
         public PictureBox Image { get { return image; }  set { image = value; } }
+        public Label Name_App { get { return name_app; } set { name_app = value; } }
         public Label User_Name { get { return user_name; }  set { user_name = value; } }
         public Label Role { get { return role; } set { role = value; } }
         public CheckBox Restrictions { get { return restrictions; }  set { restrictions = value; } }

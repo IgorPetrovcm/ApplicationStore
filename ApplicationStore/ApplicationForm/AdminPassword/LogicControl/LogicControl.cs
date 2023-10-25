@@ -2,18 +2,14 @@
 using MDBC;
 using MSD;
 using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ApplicationStore_ApplicationForm_AdminPassword
 {
     public static class LogicControl
     {
-        public static void CheckPassword(User user,TextBox password, App app, RequestAdminPasswordForm form)
+        public static void CheckPassword(User user,TextBox password, App app, RequestAdminPasswordForm form,Image imageIcon)
         {
             using (MySqlDataReader reader = GetResultDB.GetReader($"select user_password from users where user_id = {user.Id}"))
             {
@@ -21,7 +17,7 @@ namespace ApplicationStore_ApplicationForm_AdminPassword
                 {
                     if (password.Text == (string)reader.GetValue(0))
                     {
-                        ApplicationEditForm edit = new ApplicationEditForm(app);
+                        ApplicationEditForm edit = new ApplicationEditForm(app,imageIcon);
                         edit.Show();
 
                         form.Close();
