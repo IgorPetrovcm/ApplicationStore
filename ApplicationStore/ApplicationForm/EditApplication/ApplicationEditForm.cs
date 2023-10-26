@@ -8,6 +8,7 @@ using MCh;
 using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Linq;
 
 namespace ApplicationStore_ApplicationForm
 {
@@ -16,6 +17,8 @@ namespace ApplicationStore_ApplicationForm
         App app;
         string imagePath;
         bool iconEdit = false;
+        List<Roles> roles = new List<Roles>();
+
         public ApplicationEditForm(App app)
         {
             InitializeComponent();
@@ -24,7 +27,6 @@ namespace ApplicationStore_ApplicationForm
 
         private void ApplicationEditForm_Load(object sender, EventArgs e)
         {
-            List<Roles> roles = new List<Roles>();
             byte index;
             string user_name;
 
@@ -66,19 +68,7 @@ namespace ApplicationStore_ApplicationForm
 
         private void btnSaveNewApp_Click(object sender, EventArgs e)
         {
-            /*            MemoryStream ms = new MemoryStream();
-                        icon_appBox.Image.Save(ms,ImageFormat.Png);
-                        byte[] imageBytes = ms.ToArray();
 
-                        MySqlCommand command = GetResultDB.GetDefaultRequest($"update application_test" +
-                                                                             $"set app_image = @image," +
-                                                                             $"app_name = '{nameBox.Text}'," +
-                                                                             $"app_description = '{descriptionBox.Text}'," +
-                                                                             $"app_role_id = {cmbRolesBox.SelectedIndex-1}," +
-                                                                             $"app_restrictions = {restrictionChkBox.Checked}" +
-                                                                             $"where app_id = {app.Id}");
-                        command.Parameters.AddWithValue("@image", imageBytes);
-                        int row_add = command.ExecuteNonQuery();*/
             if (iconEdit == true)
             {
                 byte[] imageBytes = File.ReadAllBytes(imagePath);
@@ -95,9 +85,18 @@ namespace ApplicationStore_ApplicationForm
                     MessageBox.Show("Error add image", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            byte idRole = 0;
+            IEnumerable<byte> roles_id = from roleName in roles where roleName.NameRole == cmbRolesBox.SelectedItem.ToString() select roleName.IdRole;
+            foreach (byte id in roles_id)
+            {
+                idRole = id;
+            }
 
             MySqlCommand command = GetResultDB.GetDefaultRequest($"update application_test " +
-                                                                 $"app_name = '{nameBox.Text}' " +
+                                                                 $"set app_name = '{nameBox.Text}', " +
+                                                                 $"app_description = '{descriptionBox.Text}', " +
+                                                                 $"app_role_id = {idRole}, " +
+                                                                 $"app_ageRestriction = {restrictionChkBox.Checked} " +
                                                                  $"where app_id = {app.Id}");
             int add = command.ExecuteNonQuery();
             if (add > 0)
