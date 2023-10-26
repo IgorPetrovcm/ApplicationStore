@@ -58,6 +58,7 @@ namespace ApplicationStore_ApplicationForm
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 iconEdit = true;
+                imagePath = dialog.FileName;
 
                 byte[] new_iconBytes = File.ReadAllBytes(dialog.FileName);
                 MemoryStream ms = new MemoryStream(new_iconBytes);
