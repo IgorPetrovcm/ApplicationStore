@@ -1,6 +1,10 @@
 ﻿using MSD;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using MDBC;
+using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace ApplicationStore_ApplicationForm
 {
@@ -23,6 +27,27 @@ namespace ApplicationStore_ApplicationForm
             byte user_id = LogicReadControl.GetIdUploadedUser($"select app_users_id from application_test where app_id = {app_id}");
             user_name = LogicReadControl.GetNameUploadedUser($"select user_login from users where user_id = {user_id}");
 
+        }
+
+        public static void OutputEditApp(bool iconEdit, string imagePath, App app)
+        {
+            if (iconEdit == true)
+            {
+                byte[] imageBytes = File.ReadAllBytes(imagePath);
+                MySqlCommand commandEditImage = GetResultDB.GetDefaultRequest($"update application_test " +
+                                                                     $"set app_image = @image where app_id = {app.Id}");
+
+                commandEditImage.Parameters.AddWithValue("@image", imageBytes);
+                int add_toDbRow = commandEditImage.ExecuteNonQuery();
+                if (add_toDbRow > 0)
+                {
+                    MessageBox.Show("Successfully add image", "Save image", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    MessageBox.Show("Error add image", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }            
+            }
         }
     }
 }

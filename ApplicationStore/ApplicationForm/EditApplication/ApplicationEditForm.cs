@@ -74,7 +74,7 @@ namespace ApplicationStore_ApplicationForm
             {
                 byte[] imageBytes = File.ReadAllBytes(imagePath);
                 MySqlCommand commandEditImage = GetResultDB.GetDefaultRequest($"update application_test " +
-                                                                          $"set app_image = @image where app_id = {app.Id}");
+                                                                              $"set app_image = @image where app_id = {app.Id}");
                 commandEditImage.Parameters.AddWithValue("@image", imageBytes);
                 int addImage = commandEditImage.ExecuteNonQuery();
                 if (addImage > 0)
