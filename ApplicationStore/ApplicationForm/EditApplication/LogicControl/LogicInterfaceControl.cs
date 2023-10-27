@@ -5,6 +5,7 @@ using System.IO;
 using MDBC;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace ApplicationStore_ApplicationForm
 {
@@ -29,7 +30,7 @@ namespace ApplicationStore_ApplicationForm
 
         }
 
-        public static void OutputEditApp(bool iconEdit, string imagePath, App app)
+        public static void OutputEditImageApp(bool iconEdit, string imagePath, App app)
         {
             if (iconEdit == true)
             {
@@ -48,6 +49,20 @@ namespace ApplicationStore_ApplicationForm
                     MessageBox.Show("Error add image", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }            
             }
+        }
+        public static byte OutputSelectedRoleIndex(List<Roles> roles, ComboBox rolesBox)
+        {
+            byte roleId = 0;
+
+            IEnumerable<byte> byteIndexes = from roleName in roles 
+                                          where roleName.NameRole == rolesBox.SelectedItem.ToString() 
+                                          select roleName.IdRole;
+
+            foreach (byte id in byteIndexes)
+            {
+                roleId = id;
+            }
+            return roleId;
         }
     }
 }
