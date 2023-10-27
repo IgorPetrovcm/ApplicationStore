@@ -69,45 +69,11 @@ namespace ApplicationStore_ApplicationForm
 
         private void btnSaveNewApp_Click(object sender, EventArgs e)
         {
+            LogicInterfaceControl.OutputEditImageApp(iconEdit, imagePath, app.Id);
 
-            if (iconEdit == true)
-            {
-                byte[] imageBytes = File.ReadAllBytes(imagePath);
-                MySqlCommand commandEditImage = GetResultDB.GetDefaultRequest($"update application_test " +
-                                                                              $"set app_image = @image where app_id = {app.Id}");
-                commandEditImage.Parameters.AddWithValue("@image", imageBytes);
-                int addImage = commandEditImage.ExecuteNonQuery();
-                if (addImage > 0)
-                {
-                    MessageBox.Show("Successfully add image", "Save image", MessageBoxButtons.OK);
-                }
-                else
-                {
-                    MessageBox.Show("Error add image", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            byte idRole = 0;
-            IEnumerable<byte> roles_id = from roleName in roles where roleName.NameRole == cmbRolesBox.SelectedItem.ToString() select roleName.IdRole;
-            foreach (byte id in roles_id)
-            {
-                idRole = id;
-            }
+            byte id_role = LogicInterfaceControl.OutputSelectedRoleIndex(roles, cmbRolesBox);
 
-            MySqlCommand command = GetResultDB.GetDefaultRequest($"update application_test " +
-                                                                 $"set app_name = '{nameBox.Text}', " +
-                                                                 $"app_description = '{descriptionBox.Text}', " +
-                                                                 $"app_role_id = {idRole}, " +
-                                                                 $"app_ageRestriction = {restrictionChkBox.Checked} " +
-                                                                 $"where app_id = {app.Id}");
-            int add = command.ExecuteNonQuery();
-            if (add > 0)
-            {
-                MessageBox.Show("Successfully","Save",MessageBoxButtons.OK);
-            }
-            else
-            {
-                MessageBox.Show("Total error","error",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
+            EditAppToDB.ToDB(nameBox.Text, descriptionBox.Text, id_role, restrictionChkBox.Checked, app.Id);
         }
     }
 }

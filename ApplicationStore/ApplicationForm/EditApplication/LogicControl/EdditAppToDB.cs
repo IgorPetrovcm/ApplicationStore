@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ApplicationStore_ApplicationForm
 {
-    public static class EdditAppToDB
+    public static class EditAppToDB
     {
         public static void ToDB(string name_app, string description_app, byte id_role, bool restriction_app, byte id_app)
         {
