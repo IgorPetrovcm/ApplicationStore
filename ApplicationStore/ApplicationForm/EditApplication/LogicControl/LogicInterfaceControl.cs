@@ -30,16 +30,16 @@ namespace ApplicationStore_ApplicationForm
 
         }
 
-        public static void OutputEditImageApp(bool iconEdit, string imagePath, App app)
+        public static void OutputEditImageApp(bool iconEdit, string imagePath, byte idApp)
         {
             if (iconEdit == true)
             {
                 byte[] imageBytes = File.ReadAllBytes(imagePath);
-                MySqlCommand commandEditImage = GetResultDB.GetDefaultRequest($"update application_test " +
-                                                                     $"set app_image = @image where app_id = {app.Id}");
+                MySqlCommand command = GetResultDB.GetDefaultRequest($"update application_test " +
+                                                                     $"set app_image = @image where app_id = {idApp}");
 
-                commandEditImage.Parameters.AddWithValue("@image", imageBytes);
-                int add_toDbRow = commandEditImage.ExecuteNonQuery();
+                command.Parameters.AddWithValue("@image", imageBytes);
+                int add_toDbRow = command.ExecuteNonQuery();
                 if (add_toDbRow > 0)
                 {
                     MessageBox.Show("Successfully add image", "Save image", MessageBoxButtons.OK);
