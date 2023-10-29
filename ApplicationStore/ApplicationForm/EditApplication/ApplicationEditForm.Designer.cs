@@ -38,6 +38,7 @@
             this.user_nameText = new System.Windows.Forms.Label();
             this.cmbRolesBox = new System.Windows.Forms.ComboBox();
             this.nameBox = new System.Windows.Forms.TextBox();
+            this.btnDeleteApp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.icon_appBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -135,11 +136,22 @@
             this.nameBox.Size = new System.Drawing.Size(220, 22);
             this.nameBox.TabIndex = 18;
             // 
+            // btnDeleteApp
+            // 
+            this.btnDeleteApp.Location = new System.Drawing.Point(412, 9);
+            this.btnDeleteApp.Name = "btnDeleteApp";
+            this.btnDeleteApp.Size = new System.Drawing.Size(73, 28);
+            this.btnDeleteApp.TabIndex = 19;
+            this.btnDeleteApp.Text = "Delete";
+            this.btnDeleteApp.UseVisualStyleBackColor = true;
+            this.btnDeleteApp.Click += new System.EventHandler(this.btnDeleteApp_Click);
+            // 
             // ApplicationEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(488, 453);
+            this.Controls.Add(this.btnDeleteApp);
             this.Controls.Add(this.nameBox);
             this.Controls.Add(this.cmbRolesBox);
             this.Controls.Add(this.btnSaveNewApp);
@@ -171,5 +183,6 @@
         private System.Windows.Forms.Label user_nameText;
         private System.Windows.Forms.ComboBox cmbRolesBox;
         private System.Windows.Forms.TextBox nameBox;
+        private System.Windows.Forms.Button btnDeleteApp;
     }
 }

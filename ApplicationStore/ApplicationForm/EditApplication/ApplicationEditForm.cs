@@ -75,5 +75,19 @@ namespace ApplicationStore_ApplicationForm
 
             EditAppToDB.ToDB(nameBox.Text, descriptionBox.Text, id_role, restrictionChkBox.Checked, app.Id);
         }
+
+        private void btnDeleteApp_Click(object sender, EventArgs e)
+        {
+            MySqlCommand command = GetResultDB.GetDefaultRequest($"delete from application_test where app_id = {app.Id}");
+            int rowDelete = command.ExecuteNonQuery();
+            if (rowDelete > 0)
+            {
+                MessageBox.Show("Application delete!","Application edit");
+            }
+            else
+            {
+                MessageBox.Show("Delete error","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
     }
 }
