@@ -23,8 +23,9 @@ namespace ApplicationStore_AdministratorForm_Edit
             int i = 1;
             foreach (App app in apps)
             {
-                controls.Add(PropertyStructure.GetNameAppBox(app));
-                controls.Add(PropertyStructure.GetIconApp(app,user));
+                controls.Add(PropertyStructure.GetNameAppBox(app,i));
+                controls.Add(PropertyStructure.GetIconApp(app,user,i));
+                i++;
             }
             
             return controls;

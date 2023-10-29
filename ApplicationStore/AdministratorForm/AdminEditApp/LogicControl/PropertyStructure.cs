@@ -29,16 +29,15 @@ namespace ApplicationStore_AdministratorForm_Edit
             return appName;
         }
 
-        public static PictureBox GetIconApp(App app,User user)
+        public static PictureBox GetIconApp(App app,User user,int i)
         {
             byte[] iconBytes = app.Image;
             MemoryStream ms = new MemoryStream(iconBytes);
 
-            byte appIdTest = app.Id;
             PictureBox appIcon = new PictureBox()
             {
                 Size = new Size(45, 45),                
-                Location = new Point(5, (appIdTest - 1) * 60 + 10),                          
+                Location = new Point(5, (i - 1) * 60 + 10),                          
 
                 Image = Image.FromStream(ms),
             };
