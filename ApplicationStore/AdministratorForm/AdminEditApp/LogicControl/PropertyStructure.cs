@@ -42,12 +42,12 @@ namespace ApplicationStore_AdministratorForm_Edit
 
                 Image = Image.FromStream(ms),
             };
-            appIcon.DoubleClick += (sender, e) =>
+/*            appIcon.DoubleClick += (sender, e) =>
             {
                 ApplicationForm appForm = new ApplicationForm(app,user);
                 appForm.ShowDialog();
 
-            };
+            };*/
             return appIcon;
         }
     }

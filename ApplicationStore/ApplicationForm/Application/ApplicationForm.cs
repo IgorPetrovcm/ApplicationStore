@@ -17,8 +17,6 @@ namespace ApplicationStore_ApplicationForm
         {
             InitializeComponent();
 
-            EditApplicationForm editForm = new EditApplicationForm(user);
-            editForm.Close();
             this.app = app;
             this.user = user;
         }

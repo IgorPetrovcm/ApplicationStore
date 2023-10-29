@@ -21,9 +21,13 @@ namespace ApplicationStore_AdministratorForm_Edit
 
         private void EditApplicationForm_Load(object sender, EventArgs e)
         {
-            List<Control> controls = LogicControl.PanelAddAppToDB(user);
+            int i = 1;
+            App app;
+            List<Control> controls = LogicControl.PanelAddAppToDB(user,ref i);
+
             foreach (Control control in controls)
             {
+                PictureBox picture = PropertyStructure.GetIconApp(app,user,i)
                 panel1.Controls.Add(control);                
             }
         }
