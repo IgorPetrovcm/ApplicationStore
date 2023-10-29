@@ -30,7 +30,7 @@ namespace ApplicationStore_AdministratorForm_Edit
             return appName;
         }
 
-        public static PictureBox GetIconApp(App app,int i)
+        public static PictureBox GetIconApp(User user,App app,int i)
         {
             byte[] iconBytes = app.Image;
             MemoryStream ms = new MemoryStream(iconBytes);
@@ -42,12 +42,12 @@ namespace ApplicationStore_AdministratorForm_Edit
 
                 Image = Image.FromStream(ms),
             };
-/*            appIcon.DoubleClick += (sender, e) =>
+            appIcon.DoubleClick += (sender, e) =>
             {
-                ApplicationForm appForm = new ApplicationForm(app,user);
+                ApplicationForm appForm = new ApplicationForm(app, user);
                 appForm.ShowDialog();
 
-            };*/
+            };
             return appIcon;
         }
     }

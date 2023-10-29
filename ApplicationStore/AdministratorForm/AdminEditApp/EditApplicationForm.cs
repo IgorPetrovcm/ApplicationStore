@@ -21,26 +21,14 @@ namespace ApplicationStore_AdministratorForm_Edit
 
         private void EditApplicationForm_Load(object sender, EventArgs e)
         {
-            EventHandler ev = new EventHandler();
             int i = 1;
-            List<Control> controlsNames = LogicControl.PanelAddAppName(ref i);
+            List<Control> controlsNames = LogicControl.PanelAddAppName(user,ref i);
 
             foreach (Control control in controlsNames)
             {
                 panel1.Controls.Add(control);                
             }
 
-            i = 1;
-            List<Control> controlsIcons = LogicControl.PanelAddAppIcon(ref i);
-
-            foreach ( Control control in controlsIcons)
-            {
-                control.DoubleClick +=  =>
-                {
-
-                };
-                panel1.Controls.Add(control);
-            }
         }
     }
 }
