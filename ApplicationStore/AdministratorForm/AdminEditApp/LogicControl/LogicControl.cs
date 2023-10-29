@@ -20,6 +20,7 @@ namespace ApplicationStore_AdministratorForm_Edit
             List<Control> controls = new List<Control>();
             List<App> apps = GetDataApps.GetAppTest();
 
+            int i = 1;
             foreach (App app in apps)
             {
                 controls.Add(PropertyStructure.GetNameAppBox(app));

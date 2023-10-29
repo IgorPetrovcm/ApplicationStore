@@ -14,14 +14,14 @@ namespace ApplicationStore_AdministratorForm_Edit
 {
     public struct PropertyStructure 
     {
-        public static TextBox GetNameAppBox(App app)
+        public static TextBox GetNameAppBox(App app,int i)
         {
             TextBox appName = new TextBox()
             {
                 Text = app.Name,
                 ReadOnly = true,
                 Size = new Size(175, 0),
-                Location = new Point(55, (app.Id - 1) * 60 + 10),
+                Location = new Point(55, (i - 1) * 60 + 10),
                 BorderStyle = BorderStyle.None,
                 BackColor = SystemColors.Menu,
                 Font = new Font("Microsoft Sans Serif", 10),
