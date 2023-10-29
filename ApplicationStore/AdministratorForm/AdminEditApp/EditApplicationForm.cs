@@ -24,7 +24,7 @@ namespace ApplicationStore_AdministratorForm_Edit
             List<Control> controls = LogicControl.PanelAddAppToDB(user);
             foreach (Control control in controls)
             {
-                panel1.Controls.Add(control);
+                panel1.Controls.Add(control);                
             }
         }
     }

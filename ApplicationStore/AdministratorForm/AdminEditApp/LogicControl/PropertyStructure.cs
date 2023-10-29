@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MSD;
 using ApplicationStore_ApplicationForm;
+using System.Runtime.CompilerServices;
 
 namespace ApplicationStore_AdministratorForm_Edit
 {
@@ -45,6 +46,7 @@ namespace ApplicationStore_AdministratorForm_Edit
             {
                 ApplicationForm appForm = new ApplicationForm(app,user);
                 appForm.ShowDialog();
+
             };
             return appIcon;
         }

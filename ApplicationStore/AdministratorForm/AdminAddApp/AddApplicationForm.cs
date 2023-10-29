@@ -35,6 +35,8 @@ namespace ApplicationStore_AdministratorForm_Add
         {
             Data_LogicDataApp data = new Data_LogicDataApp(iconBox1,imageExtension,roles,cmbRolesBox,user,nameBox.Text,descriptionBox.Text,checkRestrictionsOfAge);
             LogicInterfaceControl.LogicDataApp(data);
+
+            this.Close();
         }
 
     }

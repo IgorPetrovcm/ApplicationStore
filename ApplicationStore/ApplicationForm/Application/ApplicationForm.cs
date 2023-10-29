@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using ApplicationStore_ApplicationForm_AdminPassword;
+using ApplicationStore_AdministratorForm_Edit;
 
 namespace ApplicationStore_ApplicationForm
 {
@@ -16,6 +17,8 @@ namespace ApplicationStore_ApplicationForm
         {
             InitializeComponent();
 
+            EditApplicationForm editForm = new EditApplicationForm(user);
+            editForm.Close();
             this.app = app;
             this.user = user;
         }

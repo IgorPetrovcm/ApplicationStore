@@ -78,6 +78,7 @@ namespace ApplicationStore_ApplicationForm
 
         private void btnDeleteApp_Click(object sender, EventArgs e)
         {
+            this.Close();
             MySqlCommand command = GetResultDB.GetDefaultRequest($"delete from application_test where app_id = {app.Id}");
             int rowDelete = command.ExecuteNonQuery();
             if (rowDelete > 0)
