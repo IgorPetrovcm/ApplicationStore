@@ -30,7 +30,7 @@ namespace ApplicationStore_AdministratorForm_Edit
             return appName;
         }
 
-        public static PictureBox GetIconApp(App app,User user,int i)
+        public static PictureBox GetIconApp(App app,int i)
         {
             byte[] iconBytes = app.Image;
             MemoryStream ms = new MemoryStream(iconBytes);
