@@ -23,7 +23,7 @@ namespace ApplicationStore_ApplicationForm
 
         private void ApplicationForm_Load(object sender, System.EventArgs e)
         {
-            if (user.IdRole == 2) button1.Dispose();
+            if (user.IdRole == 1) button1.Dispose();
 
             Data_ControlsToForm data = new Data_ControlsToForm(icon_appBox, nameText, user_nameText, roleText, restrictionChkBox, textBox1);
             Data_ControlsToForm data_form = LogicControl.GetAppInfo(data,app);

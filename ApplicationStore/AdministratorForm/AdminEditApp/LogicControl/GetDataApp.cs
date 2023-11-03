@@ -15,11 +15,7 @@ namespace ApplicationStore_AdministratorForm_Edit
     {
         public static List<App> GetAppTest(User user)
         {
-            /*MySqlDataReader reader;
-            switch (user.IdRole)
-            {
-                case 1 { reader = GetResultDB.GetReader($"select * from application_test where app_role_id = {user.IdRole}"); }
-            } */
+
             MySqlDataReader reader = GetResultDB.GetReader($"select * from application_test where app_role_id = {user.IdRole}");
 
             List<App> apps = new List<App>();

@@ -43,7 +43,7 @@ namespace ApplicationStore_AuthorizationForm
             }
             if (ChecksEntities.CheckUser(user))
             {
-                if (user.IdRole == 2)
+                if (user.IdRole == 1)
                 {
                     EditApplicationForm appsForm = new EditApplicationForm(user);
                     appsForm.ShowDialog();
