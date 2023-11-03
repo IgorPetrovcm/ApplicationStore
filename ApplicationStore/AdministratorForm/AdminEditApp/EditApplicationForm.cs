@@ -23,6 +23,7 @@ namespace ApplicationStore_AdministratorForm_Edit
         {
             int i = 1;
             List<Control> controlsNames = LogicControl.PanelAddAppName(user,ref i);
+            textBox1.Text = Convert.ToString(user.IdRole);
 
             foreach (Control control in controlsNames)
             {

@@ -18,7 +18,7 @@ namespace ApplicationStore_AdministratorForm_Edit
         public static List<Control> PanelAddAppName(User user,ref int i)
         {
             List<Control> controls = new List<Control>();
-            List<App> apps = GetDataApps.GetAppTest();
+            List<App> apps = GetDataApps.GetAppTest(user);
 
             foreach (App app in apps)
             {
