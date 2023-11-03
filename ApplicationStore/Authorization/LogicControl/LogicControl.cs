@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using MDBC;
 using ApplicationStore_AdministratorForm;
 using MCh;
+using ApplicationStore_AdministratorForm_Edit;
 
 namespace ApplicationStore_AuthorizationForm
 {
@@ -42,6 +43,12 @@ namespace ApplicationStore_AuthorizationForm
             }
             if (ChecksEntities.CheckUser(user))
             {
+                if (user.IdRole == 2)
+                {
+                    EditApplicationForm appsForm = new EditApplicationForm(user);
+                    appsForm.ShowDialog();
+                    return user;
+                }
                 AdministratorForm admin = new AdministratorForm(user);
                 admin.ShowDialog();
 

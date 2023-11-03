@@ -16,6 +16,7 @@ namespace ApplicationStore_AuthorizationForm
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
+            
             user = LogicControl.GetUser(loginTextBox.Text,passwordTextBox.Text);
 
         }
