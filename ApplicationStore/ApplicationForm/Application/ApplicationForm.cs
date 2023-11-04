@@ -37,6 +37,7 @@ namespace ApplicationStore_ApplicationForm
 
             RequestAdminPasswordForm requestAdmin_passwordForm = new RequestAdminPasswordForm(user, app);
             requestAdmin_passwordForm.Show();
+            requestAdmin_passwordForm.TopMost = true;
         }
     }
 }
