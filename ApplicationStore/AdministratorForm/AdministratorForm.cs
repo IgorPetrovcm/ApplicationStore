@@ -17,14 +17,18 @@ namespace ApplicationStore_AdministratorForm
 
         private void btnAddApp_Click(object sender, EventArgs e)
         {
+            this.Close();
             AddApplicationForm addAppForm = new AddApplicationForm(user);
-            addAppForm.ShowDialog();
+            addAppForm.Show();
+            addAppForm.TopMost = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Close();
             EditApplicationForm editAppForm = new EditApplicationForm(user);
-            editAppForm.ShowDialog();
+            editAppForm.Show();
+            editAppForm.TopMost = true;
         }
     }
 }
